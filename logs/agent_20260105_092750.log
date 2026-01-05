@@ -1,0 +1,33 @@
+2026-01-05 09:27:50,471 - root - INFO - ============================================================
+2026-01-05 09:27:50,472 - root - INFO - Logging initialized. Level: INFO
+2026-01-05 09:27:50,472 - root - INFO - Log file: D:\agent_system\logs\agent_20260105_092750.log
+2026-01-05 09:27:50,473 - root - INFO - ============================================================
+2026-01-05 09:27:50,473 - mcp.xhs_server - INFO - XHS MCP Server initialized
+2026-01-05 09:27:50,473 - mcp.xhs_server - INFO - XHS MCP Server started
+2026-01-05 09:27:50,474 - mcp.llm_server - INFO - LLM MCP Server initialized
+2026-01-05 09:27:50,474 - mcp.llm_server - INFO - LLM Client initialized: model=gpt-4o
+2026-01-05 09:27:51,286 - mcp.llm_server - INFO - LLM Client started
+2026-01-05 09:27:51,286 - mcp.llm_server - INFO - LLM MCP Server started
+2026-01-05 09:27:51,300 - mcp.storage_server - INFO - Storage MCP Server initialized: dir=agent_context
+2026-01-05 09:27:51,300 - mcp.storage_server - INFO - Storage MCP Server started
+2026-01-05 09:27:51,301 - agents.context_store - INFO - ContextStore initialized with TTL=3600s
+2026-01-05 09:27:51,302 - agents.context_store - INFO - Registered agent: orchestrator (orchestrator)
+2026-01-05 09:27:51,302 - agent.orchestrator - INFO - Agent initialized: orchestrator (type=orchestrator)
+2026-01-05 09:27:51,303 - agents.context_store - INFO - Created run context: 在深圳卖陈皮_20260105_092751_69ca56ca
+2026-01-05 09:27:51,303 - agent.orchestrator - INFO - Starting validation for: 在深圳卖陈皮 (run_id: 在深圳卖陈皮_20260105_092751_69ca56ca)
+2026-01-05 09:27:51,303 - agent.orchestrator - INFO - 快速模式：直接使用用户输入作为搜索关键词 - '在深圳卖陈皮'
+2026-01-05 09:27:51,303 - agent.orchestrator - INFO - [快速模式] 直接使用用户输入作为搜索关键词: 在深圳卖陈皮
+2026-01-05 09:27:51,303 - agent.orchestrator - WARNING - Step scrape_data failed, retrying...
+2026-01-05 09:27:51,303 - agent.orchestrator - INFO - Retrying step scrape_data, attempt 1/2
+2026-01-05 09:27:52,304 - agent.orchestrator - INFO - Retrying step scrape_data, attempt 2/2
+2026-01-05 09:27:54,317 - agent.orchestrator - WARNING - Step analyze_posts_with_comments dependencies not met, skipping
+2026-01-05 09:27:54,317 - agent.orchestrator - WARNING - Step analyze_comments_with_tags dependencies not met, skipping
+2026-01-05 09:27:54,318 - agent.orchestrator - WARNING - Step combined_analysis dependencies not met, skipping
+2026-01-05 09:27:54,318 - agent.orchestrator - WARNING - Step generate_report dependencies not met, skipping
+2026-01-05 09:27:54,318 - agent.orchestrator - ERROR - Validation failed: None
+2026-01-05 09:27:54,319 - agent.orchestrator - INFO - Agent stopped: orchestrator
+2026-01-05 09:27:54,319 - agent.orchestrator - INFO - Orchestrator stopped
+2026-01-05 09:27:54,319 - mcp.xhs_server - INFO - XHS MCP Server stopped
+2026-01-05 09:27:54,329 - mcp.llm_server - INFO - LLM Client closed
+2026-01-05 09:27:54,329 - mcp.llm_server - INFO - LLM MCP Server stopped
+2026-01-05 09:27:54,330 - mcp.storage_server - INFO - Storage MCP Server stopped

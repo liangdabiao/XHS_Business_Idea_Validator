@@ -1183,6 +1183,7 @@ async def generate_combined_analysis_from_posts_skill(
         all_user_needs.extend(analysis.get("user_needs", []))
 
     # 构建综合分析提示
+    # 注意：不截取数据，将所有数据传递给 LLM 以获得全面的分析
     prompt = f"""
 你是一位资深市场分析师。请根据以下数据，为业务创意生成一份综合市场验证分析报告：
 
@@ -1194,39 +1195,41 @@ async def generate_combined_analysis_from_posts_skill(
 平均互动评分: {summary.get('avg_engagement_score', 0):.1f}/10
 情感分布: {summary.get('sentiment_distribution', {})}
 
-=== 关键痛点 ===
-{chr(10).join(f"- {p}" for p in all_pain_points[:10])}
+=== 关键痛点（共{len(all_pain_points)}条）===
+{chr(10).join(f"- {p}" for p in all_pain_points)}
 
-=== 现有解决方案 ===
-{chr(10).join(f"- {s}" for s in all_solutions[:10])}
+=== 现有解决方案（共{len(all_solutions)}条）===
+{chr(10).join(f"- {s}" for s in all_solutions)}
 
-=== 市场信号 ===
-{chr(10).join(f"- {s}" for s in all_signals[:10])}
+=== 市场信号（共{len(all_signals)}条）===
+{chr(10).join(f"- {s}" for s in all_signals)}
 
-=== 用户洞察 ===
-{chr(10).join(f"- {i}" for i in all_user_insights[:10])}
+=== 用户洞察（共{len(all_user_insights)}条）===
+{chr(10).join(f"- {i}" for i in all_user_insights)}
 
-=== 用户需求 ===
-{chr(10).join(f"- {n}" for n in all_user_needs[:10])}
+=== 用户需求（共{len(all_user_needs)}条）===
+{chr(10).join(f"- {n}" for n in all_user_needs)}
 
-请生成综合分析报告，包括：
+请生成综合分析报告，**重要：请基于提供的所有数据（{len(relevant_posts)}个帖子的分析）进行全面分析**，包括：
 1. 综合评分 (0-100): 基于市场需求、竞争程度、用户反馈等因素
-2. 市场验证摘要: 200字以内的市场验证总结
-3. 关键痛点: 提取3-5个最重要的痛点
-4. 现有解决方案: 总结当前市场上的解决方案
-5. 市场机会: 基于分析发现的市场机会
-6. 建议: 针对该业务创意的具体建议
+2. 市场验证摘要: 200-300字的市场验证总结
+3. 关键痛点: 提取所有重要痛点（至少5-10个），按重要性排序
+4. 现有解决方案: 列出所有当前市场上的解决方案（至少5个）
+5. 市场机会: 基于分析发现的市场机会（至少5个）
+6. 建议: 针对该业务创意的具体建议（至少5条）
 
 请以 JSON 格式返回：
 {{
     "overall_score": 75,
     "market_validation_summary": "市场验证摘要...",
-    "key_pain_points": ["痛点1", "痛点2", "痛点3"],
-    "existing_solutions": ["方案1", "方案2"],
-    "market_opportunities": ["机会1", "机会2", "机会3"],
-    "recommendations": ["建议1", "建议2", "建议3"],
+    "key_pain_points": ["痛点1", "痛点2", "痛点3", ...],
+    "existing_solutions": ["方案1", "方案2", ...],
+    "market_opportunities": ["机会1", "机会2", "机会3", ...],
+    "recommendations": ["建议1", "建议2", "建议3", ...],
     "metadata": {{
         "total_posts_analyzed": {len(relevant_posts)},
+        "total_pain_points_found": {len(all_pain_points)},
+        "total_solutions_found": {len(all_solutions)},
         "analysis_date": "{datetime.now().isoformat()}"
     }}
 }}
@@ -1340,6 +1343,7 @@ async def generate_combined_analysis_skill(
     common_themes = comments_analysis.get("common_themes", [])
 
     # 构建综合分析提示
+    # 注意：不截取数据，将所有数据传递给 LLM 以获得全面的分析
     prompt = f"""
 你是一位资深市场分析师。请根据以下数据，为业务创意生成一份综合市场验证分析报告：
 
@@ -1351,39 +1355,41 @@ async def generate_combined_analysis_skill(
 平均互动评分: {summary.get('avg_engagement_score', 0):.1f}/10
 情感分布: {summary.get('sentiment_distribution', {})}
 
-=== 关键痛点 ===
-{chr(10).join(f"- {p}" for p in all_pain_points[:10])}
+=== 关键痛点（共{len(all_pain_points)}条）===
+{chr(10).join(f"- {p}" for p in all_pain_points)}
 
-=== 现有解决方案 ===
-{chr(10).join(f"- {s}" for s in all_solutions[:10])}
+=== 现有解决方案（共{len(all_solutions)}条）===
+{chr(10).join(f"- {s}" for s in all_solutions)}
 
-=== 市场信号 ===
-{chr(10).join(f"- {s}" for s in all_signals[:10])}
+=== 市场信号（共{len(all_signals)}条）===
+{chr(10).join(f"- {s}" for s in all_signals)}
 
-=== 用户洞察 ===
-{chr(10).join(f"- {i}" for i in user_insights[:10])}
+=== 用户洞察（共{len(user_insights)}条）===
+{chr(10).join(f"- {i}" for i in user_insights)}
 
-=== 常见主题 ===
-{chr(10).join(f"- {t}" for t in common_themes[:10])}
+=== 常见主题（共{len(common_themes)}条）===
+{chr(10).join(f"- {t}" for t in common_themes)}
 
-请生成综合分析报告，包括：
+请生成综合分析报告，**重要：请基于提供的所有数据（{len(relevant_posts)}个帖子的分析）进行全面分析**，包括：
 1. 综合评分 (0-100): 基于市场需求、竞争程度、用户反馈等因素
-2. 市场验证摘要: 200字以内的市场验证总结
-3. 关键痛点: 提取3-5个最重要的痛点
-4. 现有解决方案: 总结当前市场上的解决方案
-5. 市场机会: 基于分析发现的市场机会
-6. 建议: 针对该业务创意的具体建议
+2. 市场验证摘要: 200-300字的市场验证总结
+3. 关键痛点: 提取所有重要痛点（至少5-10个），按重要性排序
+4. 现有解决方案: 列出所有当前市场上的解决方案（至少5个）
+5. 市场机会: 基于分析发现的市场机会（至少5个）
+6. 建议: 针对该业务创意的具体建议（至少5条）
 
 请以 JSON 格式返回：
 {{
     "overall_score": 75,
     "market_validation_summary": "市场验证摘要...",
-    "key_pain_points": ["痛点1", "痛点2", "痛点3"],
-    "existing_solutions": ["方案1", "方案2"],
-    "market_opportunities": ["机会1", "机会2", "机会3"],
-    "recommendations": ["建议1", "建议2", "建议3"],
+    "key_pain_points": ["痛点1", "痛点2", "痛点3", ...],
+    "existing_solutions": ["方案1", "方案2", ...],
+    "market_opportunities": ["机会1", "机会2", "机会3", ...],
+    "recommendations": ["建议1", "建议2", "建议3", ...],
     "metadata": {{
         "total_posts_analyzed": {len(relevant_posts)},
+        "total_pain_points_found": {len(all_pain_points)},
+        "total_solutions_found": {len(all_solutions)},
         "analysis_date": "{datetime.now().isoformat()}"
     }}
 }}

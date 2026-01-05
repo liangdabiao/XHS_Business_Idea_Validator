@@ -1,0 +1,52 @@
+{
+  "combined_analysis": {
+    "success": true,
+    "analysis": {
+      "overall_score": 73,
+      "market_validation_summary": "市场对陈皮的需求显著，但由于真伪辨识困难、价格高昂及购买渠道不可信，消费者信任度较低。尽管市场活跃度不高，用户对高品质陈皮的兴趣和需求依然存在。",
+      "key_pain_points": [
+        "陈皮作假",
+        "购买到假货",
+        "十年以上的新会陈皮难买",
+        "价格高",
+        "陈皮容易发霉"
+      ],
+      "existing_solutions": [
+        "购买5-8年的陈皮自行存放",
+        "寻找可靠品牌或藏家",
+        "通过暖气片加速干燥",
+        "使用密封桶",
+        "从果农直接购买"
+      ],
+      "market_opportunities": [
+        "提供认证的正品陈皮",
+        "开发可靠的线上和线下购买渠道",
+        "提供适合北京气候的陈皮储存解决方案"
+      ],
+      "recommendations": [
+        "建立一个可信的品牌，提供认证的正品陈皮",
+        "开发线下体验店，让消费者亲自体验和购买",
+        "提供陈皮存储和防潮解决方案，针对北京气候特点"
+      ],
+      "metadata": {
+        "total_posts_analyzed": 20,
+        "relevant_posts": 18,
+        "avg_engagement_score": 4.555555555555555,
+        "avg_sentiment": -0.1111111111111111,
+        "sentiment_distribution": {
+          "positive": 2,
+          "neutral": 12,
+          "negative": 4
+        },
+        "total_comments_analyzed": 104,
+        "recent_posts_30days": 0,
+        "top_posts_engagement": [
+          172,
+          122,
+          81
+        ],
+        "analysis_date": "2026-01-05T09:43:34.944354"
+      }
+    }
+  }
+}

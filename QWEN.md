@@ -1,4 +1,4 @@
-# Agent System - Business Idea Validator
+# Business Idea Validation Agent System
 
 ## Project Overview
 
@@ -46,21 +46,45 @@ The system follows a modular architecture with the following key components:
 ## Building and Running
 
 ### Prerequisites
-- Python 3.8+
+- Python 3.9+
 - TikHub API token for Xiaohongshu data access
 - LLM API key (OpenAI, etc.)
 
 ### Setup
-1. Install required dependencies (not explicitly listed but likely includes `requests`, `pydantic`, `yaml`, `asyncio`)
-2. Set up environment variables:
+1. Install required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Set up environment variables by copying `.env.example` to `.env`:
+   ```bash
+   # Copy the example configuration
+   copy .env.example .env
+   ```
+   
+3. Edit the `.env` file to add your API keys:
    - `TIKHUB_TOKEN`: Your TikHub API token
    - `OPENAI_API_KEY`: Your OpenAI API key (or equivalent)
    - `OPENAI_BASE_URL`: API endpoint URL
 
+### Running the System
+Execute the main validation script:
+```bash
+python run_agent.py "Your business idea here"
+```
+
+Or run interactively:
+```bash
+python run_agent.py
+# Then enter your business idea when prompted
+```
+
+For faster execution, you can use fast mode by responding 'y' when prompted.
+
 ### Running Tests
 Execute the integration tests to verify system functionality:
 ```bash
-python tests/test_integration.py
+python tests/test_e2e.py
 ```
 
 ### Main Execution Flow
@@ -151,9 +175,11 @@ The system includes a comprehensive set of skills organized by functional areas:
 ## File Structure
 ```
 agent_system/
-├── __init__.py
-├── .env
-├── README.md
+├── models/                 # Data models
+│   ├── __init__.py
+│   ├── agent_models.py     # Agent-related models
+│   ├── context_models.py   # Context models
+│   └── business_models.py  # Business domain models
 ├── agents/                 # Agent implementations
 │   ├── __init__.py
 │   ├── base_agent.py       # Base agent class
@@ -161,32 +187,45 @@ agent_system/
 │   ├── context_store.py    # Shared context management
 │   ├── orchestrator.py     # Main orchestrator agent
 │   ├── subagents/          # Specialized agents
+│   │   ├── __init__.py
+│   │   ├── keyword_agent.py    # Keyword generation agent
+│   │   ├── scraper_agent.py    # Data scraping agent
+│   │   ├── analyzer_agent.py   # Data analysis agent
+│   │   └── reporter_agent.py   # Report generation agent
 │   └── skills/             # Agent capabilities
-├── config/                 # Configuration files
-├── docs/                   # Documentation
+│       ├── __init__.py
+│       ├── keyword_skills.py
+│       ├── scraper_skills.py
+│       ├── analyzer_skills.py
+│       └── reporter_skills.py
 ├── mcp_servers/            # MCP server implementations
 │   ├── __init__.py
 │   ├── xhs_server.py       # Xiaohongshu server
 │   ├── llm_server.py       # LLM server
 │   └── storage_server.py   # Storage server
-├── models/                 # Data models
-│   ├── __init__.py
-│   ├── agent_models.py     # Agent-related models
-│   ├── context_models.py   # Context models
-│   └── business_models.py  # Business domain models
 ├── tests/                  # Test files
 │   ├── __init__.py
-│   └── test_integration.py # Integration tests
-├── utils/                  # Utility functions
-└── agent_context/          # Runtime context storage
-    └── checkpoints/        # Checkpoint files
+│   ├── test_integration.py # Integration tests
+│   └── test_e2e.py         # End-to-end tests
+├── reports/                # Generated reports
+├── agent_context/          # Runtime context storage
+│   └── checkpoints/        # Checkpoint files
+├── requirements.txt        # Dependencies
+├── run_agent.py            # Main execution script
+├── README.md               # Project documentation
+├── USER_GUIDE.md           # User guide
+├── .env.example           # Environment variables example
+└── .env                   # Environment variables (not in repo)
 ```
 
 ## Environment Variables
 - `TIKHUB_TOKEN`: API token for TikHub Xiaohongshu service
 - `OPENAI_API_KEY`: API key for LLM service
 - `OPENAI_BASE_URL`: Base URL for LLM API (default: OpenAI)
-- `REDIS_URL`: Redis connection string (if using Redis storage)
+- `SCRAPER_PAGES_PER_KEYWORD`: Number of pages to scrape per keyword (default: 2)
+- `SCRAPER_COMMENTS_PER_NOTE`: Number of comments to fetch per note (default: 20)
+- `ANALYZER_MAX_POSTS`: Maximum number of posts to analyze (default: 20)
+- `REPORT_OUTPUT_DIR`: Directory for generated reports (default: reports)
 
 ## API Integration
 The system integrates with:
@@ -195,7 +234,8 @@ The system integrates with:
 - File system or Redis for persistent storage
 
 ## Development Notes
-- The system is currently in Phase 1 (Basic Infrastructure) as per the development plan
-- Future phases include implementation of subagents and orchestrator
+- The system is currently in Phase 1-3 (Complete Implementation) as per the development plan
 - The system is designed to be extensible for additional social media platforms
 - Error handling and retry mechanisms are built into the base agent class
+- Fast mode is available for quicker validation with reduced data collection
+- The system supports checkpointing to resume from failures

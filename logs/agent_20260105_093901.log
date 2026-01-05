@@ -1,0 +1,810 @@
+2026-01-05 09:39:01,291 - root - INFO - ============================================================
+2026-01-05 09:39:01,291 - root - INFO - Logging initialized. Level: INFO
+2026-01-05 09:39:01,292 - root - INFO - Log file: D:\agent_system\logs\agent_20260105_093901.log
+2026-01-05 09:39:01,292 - root - INFO - ============================================================
+2026-01-05 09:39:01,292 - agents.context_store - INFO - ContextStore initialized with TTL=3600s
+2026-01-05 09:39:01,293 - mcp.xhs_server - INFO - XHS MCP Server initialized
+2026-01-05 09:39:01,293 - mcp.xhs_server - INFO - XHS MCP Server started
+2026-01-05 09:39:01,294 - mcp.llm_server - INFO - LLM MCP Server initialized
+2026-01-05 09:39:01,296 - mcp.llm_server - INFO - LLM Client initialized: model=gpt-4o
+2026-01-05 09:39:02,925 - mcp.llm_server - INFO - LLM Client started
+2026-01-05 09:39:02,925 - mcp.llm_server - INFO - LLM MCP Server started
+2026-01-05 09:39:02,926 - mcp.storage_server - INFO - Storage MCP Server initialized: dir=agent_context/checkpoints
+2026-01-05 09:39:02,926 - mcp.storage_server - INFO - Storage MCP Server started
+2026-01-05 09:39:02,926 - agents.context_store - INFO - Registered agent: orchestrator (orchestrator)
+2026-01-05 09:39:02,926 - agent.orchestrator - INFO - Agent initialized: orchestrator (type=orchestrator)
+2026-01-05 09:39:02,927 - agent.orchestrator - INFO - Agent started: orchestrator
+2026-01-05 09:39:02,927 - agents.context_store - INFO - Registered agent: keyword_agent (keyword)
+2026-01-05 09:39:02,927 - agent.keyword_agent - INFO - Agent initialized: keyword_agent (type=keyword)
+2026-01-05 09:39:02,928 - agents.context_store - INFO - Registered agent: scraper_agent (scraper)
+2026-01-05 09:39:02,928 - agent.scraper_agent - INFO - Agent initialized: scraper_agent (type=scraper)
+2026-01-05 09:39:02,928 - agents.context_store - INFO - Registered agent: analyzer_agent (analyzer)
+2026-01-05 09:39:02,928 - agent.analyzer_agent - INFO - Agent initialized: analyzer_agent (type=analyzer)
+2026-01-05 09:39:02,928 - agents.context_store - INFO - Registered agent: reporter_agent (reporter)
+2026-01-05 09:39:02,928 - agent.reporter_agent - INFO - Agent initialized: reporter_agent (type=reporter)
+2026-01-05 09:39:02,929 - agent.keyword_agent - INFO - Agent started: keyword_agent
+2026-01-05 09:39:02,929 - agent.orchestrator - INFO - Subagent keyword_agent started
+2026-01-05 09:39:02,929 - agent.scraper_agent - INFO - Agent started: scraper_agent
+2026-01-05 09:39:02,929 - agent.orchestrator - INFO - Subagent scraper_agent started
+2026-01-05 09:39:02,929 - agent.analyzer_agent - INFO - Agent started: analyzer_agent
+2026-01-05 09:39:02,929 - agent.orchestrator - INFO - Subagent analyzer_agent started
+2026-01-05 09:39:02,929 - agent.reporter_agent - INFO - Agent started: reporter_agent
+2026-01-05 09:39:02,929 - agent.orchestrator - INFO - Subagent reporter_agent started
+2026-01-05 09:39:02,929 - agent.orchestrator - INFO - Orchestrator started
+2026-01-05 09:39:02,929 - agents.context_store - INFO - Created run context: 在北京卖陈皮_20260105_093902_4ef3b1c4
+2026-01-05 09:39:02,930 - agent.orchestrator - INFO - Starting validation for: 在北京卖陈皮 (run_id: 在北京卖陈皮_20260105_093902_4ef3b1c4)
+2026-01-05 09:39:02,930 - agent.orchestrator - INFO - 快速模式：直接使用用户输入作为搜索关键词 - '在北京卖陈皮'
+2026-01-05 09:39:02,930 - agent.orchestrator - INFO - [快速模式] 直接使用用户输入作为搜索关键词: 在北京卖陈皮
+2026-01-05 09:39:02,930 - agent.scraper - INFO - [SCRAPER_AGENT] About to scrape with 1 keyword(s): ['在北京卖陈皮']
+2026-01-05 09:39:02,930 - agents.skills.scraper_skills - INFO - Batch scraping with comments for 1 keywords
+2026-01-05 09:39:02,930 - agents.skills.scraper_skills - INFO - Batch scraping for 1 keywords
+2026-01-05 09:39:02,930 - agents.skills.scraper_skills - INFO - Searching posts for keyword: 在北京卖陈皮, pages: 2
+2026-01-05 09:39:02,931 - agent.scraper_agent - INFO - [MCP.XHS] Request: search_notes
+2026-01-05 09:39:02,931 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:39:07,914 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:39:08,918 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:39:33,074 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:39:33,076 - mcp.xhs_server - INFO - Search complete: 36 notes in 30.14s
+2026-01-05 09:39:33,076 - agent.scraper_agent - INFO - [MCP.XHS] Response received
+2026-01-05 09:39:33,077 - agents.skills.scraper_skills - INFO - Found 36 notes for '在北京卖陈皮'
+2026-01-05 09:39:33,077 - agents.skills.scraper_skills - INFO - Found 20 notes for '在北京卖陈皮'
+2026-01-05 09:39:33,078 - agents.skills.scraper_skills - INFO - Batch getting comments for 20 notes
+2026-01-05 09:39:33,078 - agent.scraper_agent - INFO - [MCP.XHS] Request: batch_get_comments
+2026-01-05 09:39:33,078 - mcp.xhs_server - INFO - Batch getting comments for 20 notes (with 2.0s delay)
+2026-01-05 09:39:33,079 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:39:34,821 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:39:34,822 - mcp.xhs_server - INFO - Got 0 comments in 1.74s
+2026-01-05 09:39:34,822 - mcp.xhs_server - INFO - Got 0 comments for note 694522bf000000001f00ce22 (1/20)
+2026-01-05 09:39:36,822 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:39:38,262 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:39:38,263 - mcp.xhs_server - INFO - Got 0 comments in 1.44s
+2026-01-05 09:39:38,264 - mcp.xhs_server - INFO - Got 0 comments for note 695a893c000000001e0161f9 (2/20)
+2026-01-05 09:39:40,277 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:39:41,553 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:39:41,553 - mcp.xhs_server - INFO - Got 2 comments in 1.28s
+2026-01-05 09:39:41,554 - mcp.xhs_server - INFO - Got 2 comments for note 6946ad9f000000001e03b7e0 (3/20)
+2026-01-05 09:39:43,556 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:39:44,827 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:39:44,827 - mcp.xhs_server - INFO - Got 0 comments in 1.27s
+2026-01-05 09:39:44,827 - mcp.xhs_server - INFO - Got 0 comments for note 6944bcad000000001b033dd1 (4/20)
+2026-01-05 09:39:46,839 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:39:48,124 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:39:48,125 - mcp.xhs_server - INFO - Got 1 comments in 1.29s
+2026-01-05 09:39:48,126 - mcp.xhs_server - INFO - Got 1 comments for note 694e669e000000001e023d8a (5/20)
+2026-01-05 09:39:50,137 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:39:51,440 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:39:51,440 - mcp.xhs_server - INFO - Got 15 comments in 1.30s
+2026-01-05 09:39:51,440 - mcp.xhs_server - INFO - Got 15 comments for note 6898b9560000000003025d57 (6/20)
+2026-01-05 09:39:53,454 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:39:54,810 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:39:54,812 - mcp.xhs_server - INFO - Got 7 comments in 1.36s
+2026-01-05 09:39:54,812 - mcp.xhs_server - INFO - Got 7 comments for note 695a46b7000000001e0375dd (7/20)
+2026-01-05 09:39:56,822 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:39:58,753 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:39:58,754 - mcp.xhs_server - INFO - Got 15 comments in 1.93s
+2026-01-05 09:39:58,754 - mcp.xhs_server - INFO - Got 15 comments for note 684d22c0000000002100c541 (8/20)
+2026-01-05 09:40:00,767 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:40:02,279 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:40:02,279 - mcp.xhs_server - INFO - Got 0 comments in 1.51s
+2026-01-05 09:40:02,279 - mcp.xhs_server - INFO - Got 0 comments for note 694784d1000000001e0279c8 (9/20)
+2026-01-05 09:40:04,287 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:40:07,152 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:40:07,153 - mcp.xhs_server - INFO - Got 8 comments in 2.87s
+2026-01-05 09:40:07,154 - mcp.xhs_server - INFO - Got 8 comments for note 694d595b000000001f00e2f6 (10/20)
+2026-01-05 09:40:09,156 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:40:10,429 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:40:10,429 - mcp.xhs_server - INFO - Got 0 comments in 1.27s
+2026-01-05 09:40:10,430 - mcp.xhs_server - INFO - Got 0 comments for note 6698a706000000002501527b (11/20)
+2026-01-05 09:40:12,430 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:40:13,852 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:40:13,853 - mcp.xhs_server - INFO - Got 15 comments in 1.42s
+2026-01-05 09:40:13,854 - mcp.xhs_server - INFO - Got 15 comments for note 6947b0ea000000001d03b7e6 (12/20)
+2026-01-05 09:40:15,855 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:40:17,300 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:40:17,301 - mcp.xhs_server - INFO - Got 15 comments in 1.45s
+2026-01-05 09:40:17,302 - mcp.xhs_server - INFO - Got 15 comments for note 692d7503000000001e021c52 (13/20)
+2026-01-05 09:40:19,304 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:40:20,704 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:40:20,706 - mcp.xhs_server - INFO - Got 15 comments in 1.40s
+2026-01-05 09:40:20,706 - mcp.xhs_server - INFO - Got 15 comments for note 69213bc8000000001e0135eb (14/20)
+2026-01-05 09:40:22,719 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:40:27,435 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:40:27,436 - mcp.xhs_server - INFO - Got 10 comments in 4.72s
+2026-01-05 09:40:27,436 - mcp.xhs_server - INFO - Got 10 comments for note 68132904000000000703534c (15/20)
+2026-01-05 09:40:29,451 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:40:31,056 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:40:31,056 - mcp.xhs_server - INFO - Got 3 comments in 1.60s
+2026-01-05 09:40:31,057 - mcp.xhs_server - INFO - Got 3 comments for note 69538cf7000000001e033075 (16/20)
+2026-01-05 09:40:33,071 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:40:34,697 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:40:34,698 - mcp.xhs_server - INFO - Got 0 comments in 1.63s
+2026-01-05 09:40:34,698 - mcp.xhs_server - INFO - Got 0 comments for note 6958817b000000001f0072e0 (17/20)
+2026-01-05 09:40:36,705 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:40:38,337 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:40:38,338 - mcp.xhs_server - INFO - Got 11 comments in 1.63s
+2026-01-05 09:40:38,339 - mcp.xhs_server - INFO - Got 11 comments for note 680cd44b000000001202fb60 (18/20)
+2026-01-05 09:40:40,353 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:40:41,967 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:40:41,968 - mcp.xhs_server - INFO - Got 0 comments in 1.62s
+2026-01-05 09:40:41,968 - mcp.xhs_server - INFO - Got 0 comments for note 68039a94000000000d016d02 (19/20)
+2026-01-05 09:40:43,984 - mcp.xhs_server - INFO - [TikHub.XHS] Request: GET
+2026-01-05 09:40:45,396 - mcp.xhs_server - INFO - [TikHub.XHS] Response: Status 200
+2026-01-05 09:40:45,397 - mcp.xhs_server - INFO - Got 0 comments in 1.41s
+2026-01-05 09:40:45,397 - mcp.xhs_server - INFO - Got 0 comments for note 6602daf7000000000d00da32 (20/20)
+2026-01-05 09:40:45,398 - mcp.xhs_server - INFO - Batch complete: 117 comments in 72.32s
+2026-01-05 09:40:45,398 - agent.scraper_agent - INFO - [MCP.XHS] Response received
+2026-01-05 09:40:45,398 - agents.skills.scraper_skills - INFO - Batch complete: 117 comments total
+2026-01-05 09:40:45,399 - agents.skills.scraper_skills - INFO - Got 117 comments for '在北京卖陈皮'
+2026-01-05 09:40:45,400 - agents.skills.scraper_skills - INFO - Batch scrape complete: 20 notes, 20 comment batches in 102.47s
+2026-01-05 09:40:45,400 - agents.skills.scraper_skills - INFO - Batch scrape with comments complete: 20 posts, 12 with comments, 117 total comments
+2026-01-05 09:40:45,401 - agent.scraper_agent - INFO - [MCP.STORAGE] Request: save_checkpoint
+2026-01-05 09:40:45,413 - mcp.storage_server - INFO - Checkpoint saved: agent_context\checkpoints\在北京卖陈皮_20260105_093902_4ef3b1c4\scraping_complete.json
+2026-01-05 09:40:45,414 - agent.scraper_agent - INFO - [MCP.STORAGE] Response received
+2026-01-05 09:40:45,414 - agent.scraper_agent - INFO - Checkpoint saved: 在北京卖陈皮_20260105_093902_4ef3b1c4/scraping_complete
+2026-01-05 09:40:45,416 - agent.orchestrator - INFO - scrape_data completed: 20 posts, 12 with comments
+2026-01-05 09:40:45,417 - agents.skills.analyzer_skills - INFO - Batch analyzing 20 posts with comments
+2026-01-05 09:40:45,418 - agents.skills.analyzer_skills - INFO - Analyzing post with comments:  (id=694522bf000000001f00ce22)
+2026-01-05 09:40:45,418 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:40:45,424 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:40:45,425 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:40:48,563 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:40:48,578 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:40:48,579 - mcp.llm_server - INFO - Generated structured output in 3.15s
+2026-01-05 09:40:48,579 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:40:48,580 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:40:48,581 - agents.skills.analyzer_skills - INFO - Analysis complete for 694522bf000000001f00ce22: relevant=True, sentiment=neutral
+2026-01-05 09:40:48,581 - agents.skills.analyzer_skills - INFO - Analyzing post with comments:  (id=695a893c000000001e0161f9)
+2026-01-05 09:40:48,582 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:40:48,585 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:40:48,585 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:40:50,267 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:40:50,270 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:40:50,271 - mcp.llm_server - INFO - Generated structured output in 1.69s
+2026-01-05 09:40:50,271 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:40:50,272 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:40:50,272 - agents.skills.analyzer_skills - INFO - Analysis complete for 695a893c000000001e0161f9: relevant=True, sentiment=neutral
+2026-01-05 09:40:50,274 - agents.skills.analyzer_skills - INFO - Analyzing post with comments:  (id=6946ad9f000000001e03b7e0)
+2026-01-05 09:40:50,274 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:40:50,277 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:40:50,277 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:40:52,765 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:40:52,767 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:40:52,768 - mcp.llm_server - INFO - Generated structured output in 2.49s
+2026-01-05 09:40:52,768 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:40:52,769 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:40:52,769 - agents.skills.analyzer_skills - INFO - Analysis complete for 6946ad9f000000001e03b7e0: relevant=False, sentiment=neutral
+2026-01-05 09:40:52,770 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 北京的陈皮市场 (id=6944bcad000000001b033dd1)
+2026-01-05 09:40:52,770 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:40:52,773 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:40:52,775 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:40:55,680 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:40:55,682 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:40:55,683 - mcp.llm_server - INFO - Generated structured output in 2.91s
+2026-01-05 09:40:55,683 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:40:55,684 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:40:55,684 - agents.skills.analyzer_skills - INFO - Analysis complete for 6944bcad000000001b033dd1: relevant=True, sentiment=neutral
+2026-01-05 09:40:55,685 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 北京卫视养生堂推荐的陈皮 (id=694e669e000000001e023d8a)
+2026-01-05 09:40:55,685 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:40:55,687 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:40:55,687 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:40:58,279 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:40:58,281 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:40:58,282 - mcp.llm_server - INFO - Generated structured output in 2.59s
+2026-01-05 09:40:58,282 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:40:58,282 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:40:58,283 - agents.skills.analyzer_skills - INFO - Analysis complete for 694e669e000000001e023d8a: relevant=True, sentiment=negative
+2026-01-05 09:40:58,283 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 想少量买点10年以上的新会陈皮，最好北京团结湖附近线下能买的[买爆R]，求推荐！ (id=6898b9560000000003025d57)
+2026-01-05 09:40:58,283 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:40:58,285 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:40:58,286 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:02,663 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:02,665 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:02,666 - mcp.llm_server - INFO - Generated structured output in 4.38s
+2026-01-05 09:41:02,666 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:02,666 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:02,667 - agents.skills.analyzer_skills - INFO - Analysis complete for 6898b9560000000003025d57: relevant=True, sentiment=neutral
+2026-01-05 09:41:02,667 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 切不可过于信任京东自营和同仁堂 (id=695a46b7000000001e0375dd)
+2026-01-05 09:41:02,668 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:02,671 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:02,671 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:08,226 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:08,229 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:08,229 - mcp.llm_server - INFO - Generated structured output in 5.56s
+2026-01-05 09:41:08,229 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:08,230 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:08,230 - agents.skills.analyzer_skills - INFO - Analysis complete for 695a46b7000000001e0375dd: relevant=True, sentiment=negative
+2026-01-05 09:41:08,230 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 北京今天的湿度适合打开盖透透气 (id=684d22c0000000002100c541)
+2026-01-05 09:41:08,231 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:08,233 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:08,233 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:11,623 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:11,625 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:11,626 - mcp.llm_server - INFO - Generated structured output in 3.39s
+2026-01-05 09:41:11,626 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:11,627 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:11,627 - agents.skills.analyzer_skills - INFO - Analysis complete for 684d22c0000000002100c541: relevant=True, sentiment=neutral
+2026-01-05 09:41:11,627 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 北京路这场集市，把广东搬来了 (id=694784d1000000001e0279c8)
+2026-01-05 09:41:11,627 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:11,629 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:11,630 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:14,498 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:14,500 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:14,501 - mcp.llm_server - INFO - Generated structured output in 2.87s
+2026-01-05 09:41:14,502 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:14,502 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:14,502 - agents.skills.analyzer_skills - INFO - Analysis complete for 694784d1000000001e0279c8: relevant=True, sentiment=neutral
+2026-01-05 09:41:14,503 - agents.skills.analyzer_skills - INFO - Analyzing post with comments:  (id=694d595b000000001f00e2f6)
+2026-01-05 09:41:14,503 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:14,506 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:14,507 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:17,484 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:17,486 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:17,486 - mcp.llm_server - INFO - Generated structured output in 2.98s
+2026-01-05 09:41:17,487 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:17,487 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:17,487 - agents.skills.analyzer_skills - INFO - Analysis complete for 694d595b000000001f00e2f6: relevant=True, sentiment=negative
+2026-01-05 09:41:17,487 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 刷刷晒晒的一天 (id=6698a706000000002501527b)
+2026-01-05 09:41:17,488 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:17,489 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:17,489 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:19,394 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:19,395 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:19,396 - mcp.llm_server - INFO - Generated structured output in 1.91s
+2026-01-05 09:41:19,396 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:19,396 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:19,397 - agents.skills.analyzer_skills - INFO - Analysis complete for 6698a706000000002501527b: relevant=True, sentiment=neutral
+2026-01-05 09:41:19,397 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 川红橘陈皮 (id=6947b0ea000000001d03b7e6)
+2026-01-05 09:41:19,397 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:19,398 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:19,399 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:23,576 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:23,577 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:23,577 - mcp.llm_server - INFO - Generated structured output in 4.18s
+2026-01-05 09:41:23,577 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:23,577 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:23,577 - agents.skills.analyzer_skills - INFO - Analysis complete for 6947b0ea000000001d03b7e6: relevant=True, sentiment=neutral
+2026-01-05 09:41:23,578 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 北京陈化一年效果对比 (id=692d7503000000001e021c52)
+2026-01-05 09:41:23,578 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:23,578 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:23,579 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:27,354 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:27,356 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:27,358 - mcp.llm_server - INFO - Generated structured output in 3.78s
+2026-01-05 09:41:27,358 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:27,358 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:27,359 - agents.skills.analyzer_skills - INFO - Analysis complete for 692d7503000000001e021c52: relevant=True, sentiment=positive
+2026-01-05 09:41:27,359 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 求靠谱买陈皮的店 #陈皮 #推荐 #拜托各位了 #爱如陈皮愈久愈珍 #新会陈皮 (id=69213bc8000000001e0135eb)
+2026-01-05 09:41:27,359 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:27,362 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:27,363 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:31,062 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:31,064 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:31,065 - mcp.llm_server - INFO - Generated structured output in 3.70s
+2026-01-05 09:41:31,065 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:31,066 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:31,066 - agents.skills.analyzer_skills - INFO - Analysis complete for 69213bc8000000001e0135eb: relevant=True, sentiment=neutral
+2026-01-05 09:41:31,066 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 北京同仁堂广州赤岗店，没有标签的陈皮，50克，人民币225.45元。 (id=68132904000000000703534c)
+2026-01-05 09:41:31,067 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:31,068 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:31,068 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:34,728 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:34,730 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:34,730 - mcp.llm_server - INFO - Generated structured output in 3.66s
+2026-01-05 09:41:34,731 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:34,731 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:34,731 - agents.skills.analyzer_skills - INFO - Analysis complete for 68132904000000000703534c: relevant=True, sentiment=negative
+2026-01-05 09:41:34,732 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 自己存的新会陈皮 坐标北京 (id=69538cf7000000001e033075)
+2026-01-05 09:41:34,732 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:34,734 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:34,734 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:37,688 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:37,690 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:37,691 - mcp.llm_server - INFO - Generated structured output in 2.96s
+2026-01-05 09:41:37,691 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:37,691 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:37,691 - agents.skills.analyzer_skills - INFO - Analysis complete for 69538cf7000000001e033075: relevant=True, sentiment=positive
+2026-01-05 09:41:37,693 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 标签：#雷允上陈皮 #养生干货 #北京养生 (id=6958817b000000001f0072e0)
+2026-01-05 09:41:37,693 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:37,696 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:37,697 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:41,154 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:41,156 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:41,156 - mcp.llm_server - INFO - Generated structured output in 3.46s
+2026-01-05 09:41:41,156 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:41,156 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:41,156 - agents.skills.analyzer_skills - INFO - Analysis complete for 6958817b000000001f0072e0: relevant=True, sentiment=neutral
+2026-01-05 09:41:41,156 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 北京同仁堂 酸梅汤20元配方 (id=680cd44b000000001202fb60)
+2026-01-05 09:41:41,157 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:41,158 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:41,158 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:44,135 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:44,137 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:44,137 - mcp.llm_server - INFO - Generated structured output in 2.98s
+2026-01-05 09:41:44,137 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:44,138 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:44,138 - agents.skills.analyzer_skills - INFO - Analysis complete for 680cd44b000000001202fb60: relevant=False, sentiment=neutral
+2026-01-05 09:41:44,138 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 【北京免费茶博展】98年的我拍98年的陈皮 (id=68039a94000000000d016d02)
+2026-01-05 09:41:44,138 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:44,141 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:44,142 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:46,416 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:46,418 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:46,418 - mcp.llm_server - INFO - Generated structured output in 2.28s
+2026-01-05 09:41:46,418 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:46,419 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:46,419 - agents.skills.analyzer_skills - INFO - Analysis complete for 68039a94000000000d016d02: relevant=True, sentiment=neutral
+2026-01-05 09:41:46,419 - agents.skills.analyzer_skills - INFO - Analyzing post with comments: 马连道巨变～ (id=6602daf7000000000d00da32)
+2026-01-05 09:41:46,420 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:46,423 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:46,423 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:48,688 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:48,691 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:48,691 - mcp.llm_server - INFO - Generated structured output in 2.27s
+2026-01-05 09:41:48,692 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:48,692 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:48,693 - agents.skills.analyzer_skills - INFO - Analysis complete for 6602daf7000000000d00da32: relevant=True, sentiment=neutral
+2026-01-05 09:41:48,694 - agents.skills.analyzer_skills - INFO - Batch analysis complete: 20/20 successful, 18 relevant, 0 skipped
+2026-01-05 09:41:48,694 - agent.analyzer_agent - INFO - [MCP.STORAGE] Request: save_checkpoint
+2026-01-05 09:41:48,704 - mcp.storage_server - INFO - Checkpoint saved: agent_context\checkpoints\在北京卖陈皮_20260105_093902_4ef3b1c4\analysis_complete.json
+2026-01-05 09:41:48,705 - agent.analyzer_agent - INFO - [MCP.STORAGE] Response received
+2026-01-05 09:41:48,705 - agent.analyzer_agent - INFO - Checkpoint saved: 在北京卖陈皮_20260105_093902_4ef3b1c4/analysis_complete
+2026-01-05 09:41:48,706 - agent.orchestrator - INFO - analyze_posts_with_comments completed: 18 relevant posts from 20 total
+2026-01-05 09:41:48,707 - agents.skills.analyzer_skills - INFO - Starting tag-based comments analysis for 20 posts
+2026-01-05 09:41:48,707 - agents.skills.analyzer_skills - INFO - Collected 117 comments for tag analysis
+2026-01-05 09:41:48,707 - agents.skills.analyzer_skills - INFO - Using 50 comments for analysis (sampled from 117 total)
+2026-01-05 09:41:48,708 - agents.skills.analyzer_skills - INFO - Step 1: Generating tag system from comments...
+2026-01-05 09:41:48,708 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:48,709 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:48,709 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:54,457 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:54,459 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:54,459 - mcp.llm_server - INFO - Generated structured output in 5.75s
+2026-01-05 09:41:54,460 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:54,460 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:54,460 - agents.skills.analyzer_skills - INFO - Tag system generated successfully with 4 top-level categories
+2026-01-05 09:41:54,460 - agents.skills.analyzer_skills - INFO - Step 2: Analyzing each comment with tag system...
+2026-01-05 09:41:54,461 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:54,462 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:54,462 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:55,615 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:55,617 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:55,619 - mcp.llm_server - INFO - Generated structured output in 1.16s
+2026-01-05 09:41:55,619 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:55,619 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:55,621 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:55,622 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:55,623 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:57,637 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:57,640 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:57,641 - mcp.llm_server - INFO - Generated structured output in 2.02s
+2026-01-05 09:41:57,641 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:57,641 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:57,642 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:57,643 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:57,643 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:41:59,253 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:41:59,255 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:41:59,255 - mcp.llm_server - INFO - Generated structured output in 1.61s
+2026-01-05 09:41:59,256 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:41:59,256 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:41:59,257 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:41:59,258 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:41:59,259 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:00,250 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:00,252 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:00,252 - mcp.llm_server - INFO - Generated structured output in 0.99s
+2026-01-05 09:42:00,252 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:00,252 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:00,253 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:00,254 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:00,255 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:01,296 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:01,298 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:01,298 - mcp.llm_server - INFO - Generated structured output in 1.04s
+2026-01-05 09:42:01,298 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:01,298 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:01,298 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:01,299 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:01,299 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:04,362 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:04,364 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:04,364 - mcp.llm_server - INFO - Generated structured output in 3.06s
+2026-01-05 09:42:04,364 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:04,365 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:04,365 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:04,366 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:04,366 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:05,660 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:05,662 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:05,663 - mcp.llm_server - INFO - Generated structured output in 1.30s
+2026-01-05 09:42:05,663 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:05,663 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:05,664 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:05,665 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:05,665 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:07,986 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:07,989 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:07,989 - mcp.llm_server - INFO - Generated structured output in 2.32s
+2026-01-05 09:42:07,990 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:07,990 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:07,990 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:07,991 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:07,992 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:09,272 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:09,274 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:09,275 - mcp.llm_server - INFO - Generated structured output in 1.28s
+2026-01-05 09:42:09,275 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:09,276 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:09,276 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:09,277 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:09,278 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:10,381 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:10,383 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:10,383 - mcp.llm_server - INFO - Generated structured output in 1.10s
+2026-01-05 09:42:10,384 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:10,384 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:10,385 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:10,387 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:10,387 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:11,621 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:11,624 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:11,624 - mcp.llm_server - INFO - Generated structured output in 1.24s
+2026-01-05 09:42:11,625 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:11,625 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:11,625 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:11,627 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:11,627 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:14,644 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:14,646 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:14,646 - mcp.llm_server - INFO - Generated structured output in 3.02s
+2026-01-05 09:42:14,647 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:14,647 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:14,647 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:14,648 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:14,648 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:16,917 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:16,918 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:16,918 - mcp.llm_server - INFO - Generated structured output in 2.27s
+2026-01-05 09:42:16,920 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:16,920 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:16,920 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:16,922 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:16,923 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:19,835 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:19,837 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:19,838 - mcp.llm_server - INFO - Generated structured output in 2.92s
+2026-01-05 09:42:19,838 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:19,839 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:19,839 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:19,841 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:19,841 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:21,593 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:21,595 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:21,596 - mcp.llm_server - INFO - Generated structured output in 1.75s
+2026-01-05 09:42:21,596 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:21,596 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:21,597 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:21,598 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:21,598 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:23,404 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:23,406 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:23,408 - mcp.llm_server - INFO - Generated structured output in 1.81s
+2026-01-05 09:42:23,408 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:23,409 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:23,409 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:23,411 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:23,412 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:26,493 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:26,495 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:26,495 - mcp.llm_server - INFO - Generated structured output in 3.08s
+2026-01-05 09:42:26,495 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:26,496 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:26,496 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:26,497 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:26,498 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:28,937 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:28,939 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:28,940 - mcp.llm_server - INFO - Generated structured output in 2.44s
+2026-01-05 09:42:28,940 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:28,941 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:28,941 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:28,942 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:28,943 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:30,709 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:30,711 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:30,711 - mcp.llm_server - INFO - Generated structured output in 1.77s
+2026-01-05 09:42:30,712 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:30,712 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:30,712 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:30,713 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:30,714 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:33,244 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:33,245 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:33,247 - mcp.llm_server - INFO - Generated structured output in 2.53s
+2026-01-05 09:42:33,247 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:33,247 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:33,248 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:33,249 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:33,250 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:35,408 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:35,410 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:35,411 - mcp.llm_server - INFO - Generated structured output in 2.16s
+2026-01-05 09:42:35,411 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:35,412 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:35,413 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:35,414 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:35,414 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:37,029 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:37,031 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:37,032 - mcp.llm_server - INFO - Generated structured output in 1.62s
+2026-01-05 09:42:37,032 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:37,032 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:37,033 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:37,034 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:37,034 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:39,295 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:39,297 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:39,298 - mcp.llm_server - INFO - Generated structured output in 2.26s
+2026-01-05 09:42:39,298 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:39,298 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:39,298 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:39,299 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:39,300 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:40,463 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:40,466 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:40,467 - mcp.llm_server - INFO - Generated structured output in 1.17s
+2026-01-05 09:42:40,467 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:40,468 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:40,469 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:40,470 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:40,471 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:42,488 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:42,490 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:42,491 - mcp.llm_server - INFO - Generated structured output in 2.02s
+2026-01-05 09:42:42,491 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:42,491 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:42,492 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:42,493 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:42,494 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:43,832 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:43,833 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:43,834 - mcp.llm_server - INFO - Generated structured output in 1.34s
+2026-01-05 09:42:43,834 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:43,835 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:43,835 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:43,837 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:43,838 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:44,847 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:44,849 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:44,850 - mcp.llm_server - INFO - Generated structured output in 1.01s
+2026-01-05 09:42:44,850 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:44,851 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:44,851 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:44,852 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:44,853 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:45,778 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:45,779 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:45,780 - mcp.llm_server - INFO - Generated structured output in 0.93s
+2026-01-05 09:42:45,780 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:45,781 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:45,781 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:45,784 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:45,784 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:46,893 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:46,894 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:46,895 - mcp.llm_server - INFO - Generated structured output in 1.11s
+2026-01-05 09:42:46,895 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:46,896 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:46,896 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:46,897 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:46,898 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:48,208 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:48,210 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:48,211 - mcp.llm_server - INFO - Generated structured output in 1.31s
+2026-01-05 09:42:48,211 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:48,212 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:48,212 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:48,214 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:48,214 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:51,454 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:51,456 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:51,457 - mcp.llm_server - INFO - Generated structured output in 3.24s
+2026-01-05 09:42:51,458 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:51,458 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:51,458 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:51,460 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:51,460 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:53,098 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:53,100 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:53,101 - mcp.llm_server - INFO - Generated structured output in 1.64s
+2026-01-05 09:42:53,101 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:53,102 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:53,102 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:53,103 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:53,104 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:54,272 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:54,273 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:54,274 - mcp.llm_server - INFO - Generated structured output in 1.17s
+2026-01-05 09:42:54,274 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:54,275 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:54,275 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:54,277 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:54,278 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:57,048 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:57,051 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:57,051 - mcp.llm_server - INFO - Generated structured output in 2.77s
+2026-01-05 09:42:57,052 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:57,053 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:57,053 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:57,102 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:57,103 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:58,089 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:58,091 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:58,093 - mcp.llm_server - INFO - Generated structured output in 0.99s
+2026-01-05 09:42:58,093 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:58,094 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:58,094 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:58,095 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:58,096 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:42:59,571 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:42:59,575 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:42:59,575 - mcp.llm_server - INFO - Generated structured output in 1.48s
+2026-01-05 09:42:59,575 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:42:59,576 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:42:59,576 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:42:59,577 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:42:59,577 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:00,865 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:00,867 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:00,868 - mcp.llm_server - INFO - Generated structured output in 1.29s
+2026-01-05 09:43:00,869 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:00,869 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:00,870 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:43:00,871 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:43:00,872 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:02,891 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:02,894 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:02,894 - mcp.llm_server - INFO - Generated structured output in 2.02s
+2026-01-05 09:43:02,895 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:02,896 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:02,896 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:43:02,897 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:43:02,898 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:06,787 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:06,789 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:06,790 - mcp.llm_server - INFO - Generated structured output in 3.89s
+2026-01-05 09:43:06,790 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:06,791 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:06,791 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:43:06,792 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:43:06,793 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:07,689 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:07,692 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:07,692 - mcp.llm_server - INFO - Generated structured output in 0.90s
+2026-01-05 09:43:07,692 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:07,693 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:07,693 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:43:07,694 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:43:07,694 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:10,163 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:10,164 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:10,166 - mcp.llm_server - INFO - Generated structured output in 2.47s
+2026-01-05 09:43:10,166 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:10,166 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:10,167 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:43:10,168 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:43:10,169 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:11,785 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:11,787 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:11,788 - mcp.llm_server - INFO - Generated structured output in 1.62s
+2026-01-05 09:43:11,788 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:11,788 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:11,788 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:43:11,790 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:43:11,792 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:14,458 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:14,461 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:14,463 - mcp.llm_server - INFO - Generated structured output in 2.67s
+2026-01-05 09:43:14,464 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:14,464 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:14,465 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:43:14,467 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:43:14,467 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:16,292 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:16,294 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:16,295 - mcp.llm_server - INFO - Generated structured output in 1.83s
+2026-01-05 09:43:16,295 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:16,296 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:16,296 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:43:16,297 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:43:16,298 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:17,965 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:17,966 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:17,966 - mcp.llm_server - INFO - Generated structured output in 1.67s
+2026-01-05 09:43:17,966 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:17,966 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:17,966 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:43:17,967 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:43:17,967 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:18,962 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:18,965 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:18,965 - mcp.llm_server - INFO - Generated structured output in 1.00s
+2026-01-05 09:43:18,966 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:18,966 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:18,966 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:43:18,967 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:43:18,968 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:21,904 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:21,907 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:21,908 - mcp.llm_server - INFO - Generated structured output in 2.94s
+2026-01-05 09:43:21,908 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:21,909 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:21,910 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:43:21,911 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:43:21,912 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:23,426 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:23,428 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:23,428 - mcp.llm_server - INFO - Generated structured output in 1.52s
+2026-01-05 09:43:23,429 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:23,429 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:23,430 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:43:23,431 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:43:23,432 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:25,280 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:25,281 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:25,282 - mcp.llm_server - INFO - Generated structured output in 1.85s
+2026-01-05 09:43:25,282 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:25,282 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:25,282 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:43:25,283 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:43:25,284 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:26,586 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:26,587 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:26,587 - mcp.llm_server - INFO - Generated structured output in 1.30s
+2026-01-05 09:43:26,587 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:26,587 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:26,587 - agents.skills.analyzer_skills - INFO - Tag analysis complete: 0 tags applied across 50 comments
+2026-01-05 09:43:26,587 - agents.skills.analyzer_skills - INFO - Step 3: Generating user personas from comments...
+2026-01-05 09:43:26,588 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:43:26,591 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:43:26,592 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:31,658 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:31,659 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:31,661 - mcp.llm_server - INFO - Generated structured output in 5.07s
+2026-01-05 09:43:31,661 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:31,661 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:31,661 - agents.skills.analyzer_skills - INFO - Persona analysis complete: 3 personas generated
+2026-01-05 09:43:31,661 - agent.analyzer_agent - INFO - [MCP.STORAGE] Request: save_checkpoint
+2026-01-05 09:43:31,666 - mcp.storage_server - INFO - Checkpoint saved: agent_context\checkpoints\在北京卖陈皮_20260105_093902_4ef3b1c4\comments_tag_analysis_complete.json
+2026-01-05 09:43:31,667 - agent.analyzer_agent - INFO - [MCP.STORAGE] Response received
+2026-01-05 09:43:31,667 - agent.analyzer_agent - INFO - Checkpoint saved: 在北京卖陈皮_20260105_093902_4ef3b1c4/comments_tag_analysis_complete
+2026-01-05 09:43:31,668 - agent.orchestrator - INFO - analyze_comments_with_tags completed: 50 comments analyzed, 0 tags applied
+2026-01-05 09:43:31,669 - agent.analyzer_agent - INFO - [LLM] Request: generate_structured
+2026-01-05 09:43:31,670 - agent.analyzer_agent - INFO - [MCP.LLM] Request: generate_structured
+2026-01-05 09:43:31,670 - mcp.llm_server - INFO - [OpenAI] Request: POST
+2026-01-05 09:43:34,940 - httpx - INFO - HTTP Request: POST https://oa.api2d.net/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 09:43:34,942 - mcp.llm_server - INFO - [OpenAI] Response received
+2026-01-05 09:43:34,943 - mcp.llm_server - INFO - Generated structured output in 3.27s
+2026-01-05 09:43:34,943 - agent.analyzer_agent - INFO - [MCP.LLM] Response received
+2026-01-05 09:43:34,944 - agent.analyzer_agent - INFO - [LLM] Response received
+2026-01-05 09:43:34,944 - agent.analyzer - INFO - Starting word frequency analysis for combined insights
+2026-01-05 09:43:34,944 - agent.analyzer - INFO - Combined analysis complete: score=73/100
+2026-01-05 09:43:34,944 - agent.analyzer_agent - INFO - [MCP.STORAGE] Request: save_checkpoint
+2026-01-05 09:43:34,946 - mcp.storage_server - INFO - Checkpoint saved: agent_context\checkpoints\在北京卖陈皮_20260105_093902_4ef3b1c4\combined_analysis_complete.json
+2026-01-05 09:43:34,947 - agent.analyzer_agent - INFO - [MCP.STORAGE] Response received
+2026-01-05 09:43:34,947 - agent.analyzer_agent - INFO - Checkpoint saved: 在北京卖陈皮_20260105_093902_4ef3b1c4/combined_analysis_complete
+2026-01-05 09:43:34,948 - agents.skills.reporter_skills - INFO - Generating HTML report with enhanced data
+2026-01-05 09:43:34,948 - agents.skills.reporter_skills - INFO - HTML report generated: 25889 characters
+2026-01-05 09:43:34,948 - agents.skills.reporter_skills - INFO - Saving report to: reports/在北京卖陈皮_20260105_094334.html
+2026-01-05 09:43:34,950 - agents.skills.reporter_skills - INFO - Report saved: reports/在北京卖陈皮_20260105_094334.html (28527 bytes)
+2026-01-05 09:43:34,950 - agent.reporter_agent - INFO - [MCP.STORAGE] Request: save_checkpoint
+2026-01-05 09:43:34,953 - mcp.storage_server - INFO - Checkpoint saved: agent_context\checkpoints\在北京卖陈皮_20260105_093902_4ef3b1c4\report_saved.json
+2026-01-05 09:43:34,953 - agent.reporter_agent - INFO - [MCP.STORAGE] Response received
+2026-01-05 09:43:34,954 - agent.reporter_agent - INFO - Checkpoint saved: 在北京卖陈皮_20260105_093902_4ef3b1c4/report_saved
+2026-01-05 09:43:34,955 - agent.orchestrator - INFO - Validation completed successfully in 272.03s
+2026-01-05 09:43:34,956 - agent.orchestrator - INFO - Agent stopped: orchestrator
+2026-01-05 09:43:34,956 - agent.orchestrator - INFO - Orchestrator stopped
+2026-01-05 09:43:34,957 - mcp.xhs_server - INFO - XHS MCP Server stopped
+2026-01-05 09:43:34,957 - mcp.llm_server - INFO - LLM Client closed
+2026-01-05 09:43:34,957 - mcp.llm_server - INFO - LLM MCP Server stopped
+2026-01-05 09:43:34,958 - mcp.storage_server - INFO - Storage MCP Server stopped

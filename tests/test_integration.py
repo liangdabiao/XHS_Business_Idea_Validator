@@ -35,7 +35,7 @@ async def test_xhs_mcp_server():
     # xhs_server = importlib.import_module('mcp_servers.xhs_server')
 
     # 创建服务器
-    token = "vZdfXsQag0amkXarPbOZ8S3nNTqVRrVysjLT4kjaa6yL0gTnBk/aTAi8aA=="
+    token = "vZdfXsQag0amkXaLT4kjaa6yL0gTnBk/aTAi8aA=="
     server = await create_xhs_mcp_server(token)
 
     try:

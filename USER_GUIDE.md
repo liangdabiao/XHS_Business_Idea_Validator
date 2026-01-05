@@ -131,7 +131,7 @@ OPENAI_BASE_URL="https://oa.api2d.net/v1"
 
 # TikHub Token（必需）
 # 获取方式: https://www.tikhub.io/user
-TIKHUB_TOKEN="vZdfXsQag0amkXarPbOZ8S3nNTqVRrVysjLT4kjaa6yL0gTnBk/aTAi8aA=="
+TIKHUB_TOKEN="vZdfXsQag0VRrVysjLT4kjaa6yL0gTnBk/aTAi8aA=="
 
 # ============================================================
 # 系统配置

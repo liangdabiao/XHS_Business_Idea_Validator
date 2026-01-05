@@ -1,0 +1,47 @@
+{
+  "combined_analysis": {
+    "success": true,
+    "analysis": {
+      "overall_score": 68,
+      "market_validation_summary": "市场对陈皮的需求存在，但用户对价格和质量敏感度高。虽然互动量和近期活跃度较低，但用户对正宗和高质量产品的需求明确，市场存在潜在机会。",
+      "key_pain_points": [
+        "价格高",
+        "产品质量不佳",
+        "无法辨别陈皮真伪"
+      ],
+      "existing_solutions": [
+        "广盈陈2011年新会陈皮",
+        "南京同仁堂10年，15年，20年，30年现货供应的陈皮"
+      ],
+      "market_opportunities": [
+        "提供性价比更高的陈皮产品",
+        "建立可靠的产品质量认证和保质期说明",
+        "开发便捷的购买推荐和渠道"
+      ],
+      "recommendations": [
+        "在产品定价上保持竞争力，适应市场价格敏感性",
+        "强调产品的正宗性和高品质，建立品牌信任",
+        "提供关于陈皮鉴别和使用的教育内容，提升用户信任"
+      ],
+      "metadata": {
+        "total_posts_analyzed": 20,
+        "relevant_posts": 19,
+        "avg_engagement_score": 2.736842105263158,
+        "avg_sentiment": 0.0,
+        "sentiment_distribution": {
+          "positive": 2,
+          "neutral": 13,
+          "negative": 4
+        },
+        "total_comments_analyzed": 46,
+        "recent_posts_30days": 0,
+        "top_posts_engagement": [
+          106,
+          71,
+          28
+        ],
+        "analysis_date": "2026-01-05T10:31:15.360660"
+      }
+    }
+  }
+}
