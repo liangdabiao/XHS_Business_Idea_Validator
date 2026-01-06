@@ -250,13 +250,13 @@ class AnalyzerAgent(BaseAgent):
 
         if result.get("success"):
             tag_analysis = result.get("tag_analysis", {})
-            total_comments = tag_analysis.get("total_comments_analyzed", 0)
+            total_posts = tag_analysis.get("total_posts_analyzed", 0)
             total_tags = tag_analysis.get("total_tags_applied", 0)
 
             self.update_progress(
                 "analyzing_comments_with_tags",
                 1.0,
-                f"标签分析完成: {total_comments} 条评论，应用 {total_tags} 个标签"
+                f"标签分析完成: {total_posts} 个帖子，应用 {total_tags} 个标签"
             )
 
             # 保存检查点

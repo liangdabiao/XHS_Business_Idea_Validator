@@ -1,0 +1,47 @@
+{
+  "combined_analysis": {
+    "success": true,
+    "analysis": {
+      "overall_score": 78,
+      "market_validation_summary": "该业务创意'东北人在赤坎古镇'具有较高的市场验证潜力。数据表明，用户对赤坎古镇的兴趣浓厚，尤其是与东北文化的结合。尽管存在一些痛点，如商业化、食品质量和拥挤，但总体情感倾向积极，互动量高。市场需求强烈，用户期待更好的文化体验和服务质量。",
+      "key_pain_points": [
+        "老街商业化严重，失去原有市井风味",
+        "食物质量差且价格昂贵",
+        "人流量大导致拥挤"
+      ],
+      "existing_solutions": [
+        "赤坎古镇",
+        "东北人饺子馆"
+      ],
+      "market_opportunities": [
+        "开发结合东北文化的特色活动或表演，吸引东北游客",
+        "提升饮食体验，提供高质量且具有地方特色的食品",
+        "优化游客流量管理，改善拥挤问题"
+      ],
+      "recommendations": [
+        "与当地文化结合，推出东北特色的文化活动或节庆",
+        "提升饮食服务质量，推出受欢迎的东北菜品",
+        "加强游客管理和设施改善，提升整体游玩体验"
+      ],
+      "metadata": {
+        "total_posts_analyzed": 20,
+        "relevant_posts": 20,
+        "avg_engagement_score": 7.15,
+        "avg_sentiment": 0.35,
+        "sentiment_distribution": {
+          "positive": 9,
+          "neutral": 5,
+          "negative": 5
+        },
+        "total_comments_analyzed": 210,
+        "recent_posts_30days": 0,
+        "top_posts_engagement": [
+          15557,
+          4352,
+          3761
+        ],
+        "analysis_date": "2026-01-06T17:04:41.436462"
+      }
+    }
+  }
+}

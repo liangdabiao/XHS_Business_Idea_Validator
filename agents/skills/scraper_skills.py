@@ -308,7 +308,15 @@ async def batch_scrape_skill(
                     )
                     progress_callback(update)
 
-                note_ids = [n.get("note_id") for n in keyword_notes if n.get("note_id")]
+                note_ids = [
+                    n.get("note_id") 
+                    for n in keyword_notes 
+                    if n.get("note_id") and n.get("comments_count", 0) > 0
+                ]
+
+                skipped_count = len(keyword_notes) - len(note_ids)
+                if skipped_count > 0:
+                    logger.info(f"Skipping {skipped_count} notes with comments_count=0 for keyword '{keyword}'")
 
                 if note_ids:
                     comments_result = await batch_get_comments_skill(

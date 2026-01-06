@@ -164,3 +164,83 @@ agent_system/
     ├── test_integration.py          # 集成测试 ✅
     └── test_e2e.py                  # 端到端测试 ✅
 ```
+
+
+
+
+
+## 📊 指标利用情况总结
+
+### 1. **liked_count (点赞数)** ✅ 已利用
+- **用途**：计算互动评分、热门帖子排序
+- **计算公式**：`total_engagement = liked + collected * 2 + shared * 3 + comments`
+- **位置**：[analyzer_skills.py:1784](file:///d:\agent_system\agents\skills\analyzer_skills.py#L1784), [analyzer_agent.py:591](file:///d:\agent_system\agents\subagents\analyzer_agent.py#L591)
+
+### 2. **collected_count (收藏数)** ✅ 已利用（加权 2 倍）
+- **用途**：计算互动评分，权重更高（×2）
+- **计算公式**：`collected * 2`
+- **位置**：[analyzer_agent.py:592](file:///d:\agent_system\agents\subagents\analyzer_agent.py#L592)
+- **理由**：收藏代表更强的用户认可度
+
+### 3. **shared_count (分享数)** ✅ 已利用（加权 3 倍）
+- **用途**：计算互动评分，权重最高（×3）
+- **计算公式**：`shared * 3`
+- **位置**：[analyzer_agent.py:593](file:///d:\agent_system\agents\subagents\analyzer_agent.py#L593)
+- **理由**：分享代表传播价值最高
+
+### 4. **comments_count (评论数)** ✅ 已利用
+- **用途**：计算互动评分、分析评论数量
+- **计算公式**：`comments * 3` (在 analyzer_skills.py 中)
+- **位置**：[analyzer_skills.py:1784](file:///d:\agent_system\agents\skills\analyzer_skills.py#L1784), [analyzer_agent.py:594](file:///d:\agent_system\agents\subagents\analyzer_agent.py#L594)
+
+### 5. **publish_time (发布时间)** ✅ 已利用
+- **用途**：分析最近 30 天活跃度
+- **计算逻辑**：统计 30 天内发布的帖子数量
+- **位置**：[analyzer_agent.py:607-611](file:///d:\agent_system\agents\subagents\analyzer_agent.py#L607-L611)
+
+---
+
+## 🎯 核心计算逻辑
+
+### **互动评分 (engagement_score)**
+```python
+total_engagement = liked + collected * 2 + shared * 3 + comments * 3
+
+if total_engagement > 1000:
+    engagement_score = 10
+elif total_engagement > 500:
+    engagement_score = 8
+elif total_engagement > 100:
+    engagement_score = 6
+elif total_engagement > 50:
+    engagement_score = 4
+else:
+    engagement_score = 2
+```
+
+### **加权策略**
+- 点赞：权重 1×
+- 收藏：权重 2×（用户认可度高）
+- 分享：权重 3×（传播价值最高）
+- 评论：权重 3×（参与度高）
+
+---
+
+## 📈 指标应用场景
+
+1. **热门帖子排序**：按 `total_engagement` 降序排列，取 TOP 3
+2. **平均互动评分**：所有相关帖子的 `engagement_score` 平均值
+3. **报告展示**：在 HTML 报告中显示平均互动评分
+4. **活跃度分析**：统计最近 30 天发布的帖子比例
+
+---
+
+## 💡 总结
+
+✅ **所有重要指标都已充分利用**，包括：
+- 点赞、收藏、分享、评论数都参与了互动评分计算
+- 不同指标有合理的权重分配
+- 发布时间用于分析内容活跃度
+- 计算结果用于排序、评分和报告展示
+
+系统对这些指标的利用是**完整且合理**的。

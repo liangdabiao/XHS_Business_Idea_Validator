@@ -204,7 +204,7 @@ async def generate_html_report_skill(
     persona_data = None
     if tag_analysis:
         tag_data = tag_analysis.get("tag_analysis", {})
-        persona_data = tag_analysis.get("persona_analysis")
+        persona_data = tag_analysis.get("tag_analysis", {}).get("persona_analysis")
 
     # 评分颜色
     score_color = get_score_color(overall_score)
@@ -601,11 +601,11 @@ async def generate_html_report_skill(
         html += '        <div class="list-item">暂无建议</div>\n'
 
     # 新增：评论标签分析部分
-    if tag_data and tag_data.get("total_comments_analyzed", 0) > 0:
+    if tag_data and tag_data.get("total_posts_analyzed", 0) > 0:
         html += f"""
         <h2>评论标签体系分析</h2>
         <div class="summary">
-            <p><strong>分析评论数:</strong> {tag_data.get('total_comments_analyzed', 0)} 条</p>
+            <p><strong>分析帖子数:</strong> {tag_data.get('total_posts_analyzed', 0)} 个</p>
             <p><strong>应用标签数:</strong> {tag_data.get('total_tags_applied', 0)} 个</p>
             <p>{tag_data.get('analysis_summary', '')}</p>
         </div>
@@ -637,7 +637,7 @@ async def generate_html_report_skill(
                     is_negative = tag.startswith("-")
                     display_tag = tag[1:] if is_negative else tag
                     sentiment_class = "sentiment-negative" if is_negative else "sentiment-positive"
-                    sentiment_label = "负面" if is_negative else "正面"
+                    sentiment_label = "负" if is_negative else "正"
 
                     html_parts.append(f"""
                 <div class="tag-item">
@@ -673,23 +673,18 @@ async def generate_html_report_skill(
             purchase_motivations = persona.get("purchase_motivation", [])
             persona_tags = persona.get("persona_tags", [])
 
-            # 情感标签样式
-            emotion_class = {
-                "积极": "emotion-positive",
-                "positive": "emotion-positive"
-            }.get(emotion, {
-                "消极": "emotion-negative",
-                "negative": "emotion-negative"
-            }.get(emotion, "emotion-neutral"))
-
-            emotion_label = {
-                "积极": "积极",
-                "positive": "积极",
-                "消极": "消极",
-                "negative": "消极"
-            }.get(emotion, {
-                "neutral": "中性"
-            }.get(emotion, "中性"))
+            # 情感标签样式 - 改进判断逻辑
+            emotion_lower = emotion.lower() if emotion else ""
+            
+            if "积极" in emotion or "positive" in emotion_lower:
+                emotion_class = "emotion-positive"
+                emotion_label = "积极"
+            elif "消极" in emotion or "negative" in emotion_lower or "焦虑" in emotion or "担心" in emotion:
+                emotion_class = "emotion-negative"
+                emotion_label = "消极"
+            else:
+                emotion_class = "emotion-neutral"
+                emotion_label = "中性"
 
             html += f"""
             <div class="persona-card">

@@ -68,6 +68,10 @@ async def analyze_post_skill(
 
 请分析：
 1. 相关性：这个笔记是否与业务创意相关？
+   【重要】相关性判断要宽松：只要笔记内容与业务创意有**一定关联**（包括直接相关、间接相关等），都应该判断为相关。
+   - 直接相关：明确提到业务创意相关的产品/服务
+   - 间接相关：提到相关场景、用户需求、痛点等
+   
 2. 用户痛点：从笔记中提取的用户痛点或需求
 3. 解决方案：笔记中提到的解决方案或产品
 4. 市场信号：笔记反映的市场趋势或信号
@@ -226,6 +230,10 @@ async def analyze_post_with_comments_skill(
 请进行综合分析：
 
 1. 相关性判断：这个帖子（包括评论）是否与业务创意相关？
+   【重要】相关性判断要宽松：只要帖子内容或评论与业务创意有**任何关联**（包括直接相关、间接相关、潜在相关、场景相关、用户群体相关等），都应该判断为相关。
+   - 直接相关：明确提到业务创意相关的产品/服务
+   - 间接相关：提到相关场景、用户需求、痛点等
+  
 2. 痛点提取：从帖子内容和用户评论中提取的用户痛点
 3. 解决方案：帖子或评论中提到的解决方案或产品
 4. 市场信号：从互动和讨论中识别的市场趋势或信号
@@ -751,7 +759,7 @@ async def analyze_comments_with_tags_skill(
 
     分两个步骤：
     1. 生成标签体系 (generate_doc_description)
-    2. 对每条评论进行标签分析 (do_review)
+    2. 对每个 Post 的全部评论进行标签分析 (do_review)
 
     Args:
         agent: Agent 实例
@@ -942,8 +950,8 @@ async def analyze_comments_with_tags_skill(
         logger.debug(f"[LLM RESPONSE] 标签体系详情: {tag_system}")
         logger.info("=" * 80)
 
-        # 第三步：对每条评论进行标签分析
-        logger.info("Step 2: Analyzing each comment with tag system...")
+        # 第三步：对每个 Post 的全部评论进行标签分析（按 Post 分析，而非逐条评论）
+        logger.info("Step 2: Analyzing each post's comments with tag system...")
 
         # 将标签体系转换为字符串格式，用于后续评论分析
         tag_system_str = str(tag_system)
@@ -952,14 +960,32 @@ async def analyze_comments_with_tags_skill(
         tag_statistics = {}
         total_tags_applied = 0
 
-        # 分析每条评论并应用标签（逐条处理，与参考代码一致）
+        # 按 Post 分析每个帖子的评论
         analyzed_results = []
 
-        for idx, comment in enumerate(sample_comments):
-            comment_text = f"用户: {comment.get('user_nickname', 'Anonymous')}\n评论: {comment.get('content', '')}"
+        for post_idx, post in enumerate(posts_with_comments):
+            # Check if the post has been analyzed and is relevant to the business idea
+            analysis = post.get('analysis', {})
+            is_relevant = analysis.get('relevant', True)  # Default to True if not specified
 
-            # 构建标签分析提示 - 混合优化版本：简洁但有明确指令
-            tagging_prompt = f"""请基于评价标签体系对评论进行标签匹配分析。
+            if not is_relevant:
+                logger.debug(f"Skipping post {post.get('note_id', 'unknown')} as it is not relevant to the business idea")
+                continue
+
+            # 获取该 Post 的所有评论
+            comments = post.get('comments_data', [])
+            if not comments:
+                logger.debug(f"No comments for post {post.get('note_id', 'unknown')}")
+                continue
+
+            # 合并该 Post 的所有评论为一个文本
+            post_comments_text = "\n".join([
+                f"{i+1}. 用户: {c.get('user_nickname', 'Anonymous')}\n   评论: {c.get('content', '')}\n"
+                for i, c in enumerate(comments)
+            ])
+
+            # 构建标签分析提示 - 分析该 Post 的全部评论
+            tagging_prompt = f"""请基于评价标签体系对以下评论进行标签匹配分析。
 
 ## 标签体系
 {tag_system_str}
@@ -969,9 +995,12 @@ async def analyze_comments_with_tags_skill(
 - 无关标签：移除该标签
 - 相反标签：记为 -标签（例如：-价格合理）
 
-## 评论内容
-用户：{comment.get('user_nickname', 'Anonymous')}
-评论：{comment.get('content', '')}
+## 帖子信息
+帖子ID: {post.get('note_id', 'unknown')}
+帖子标题: {post.get('title', 'unknown')}
+
+## 帖子评论内容（共 {len(comments)} 条）
+{post_comments_text}
 
 ## 输出格式
 直接返回JSON格式的标签体系结构，只保留匹配到的标签。空分类用{{}}。
@@ -986,41 +1015,41 @@ async def analyze_comments_with_tags_skill(
 
             try:
                 logger.info("-" * 60)
-                logger.info(f"[LLM REQUEST] 开始分析评论 {idx + 1}/{len(sample_comments)}")
-                logger.info(f"[LLM REQUEST] 评论ID: {comment.get('comment_id')}")
-                logger.info(f"[LLM REQUEST] 用户: {comment.get('user_nickname', 'Anonymous')}")
-                logger.info(f"[LLM REQUEST] 评论内容: {comment.get('content', '')[:100]}...")  # 只记录前100字符
+                logger.info(f"[LLM REQUEST] 开始分析帖子 {post_idx + 1}/{len(posts_with_comments)}")
+                logger.info(f"[LLM REQUEST] 帖子ID: {post.get('note_id')}")
+                logger.info(f"[LLM REQUEST] 帖子标题: {post.get('title', '')}")
+                logger.info(f"[LLM REQUEST] 评论数量: {len(comments)}")
                 logger.debug(f"[LLM REQUEST] Prompt 长度: {len(tagging_prompt)} 字符")
                 logger.debug(f"[LLM REQUEST] Prompt 内容:\n{tagging_prompt[:500]}...")  # 只记录前500字符
 
-                # 调用 LLM 进行标签分析
-                comment_tags_result = await agent.use_llm(
+                # 调用 LLM 进行标签分析（一次调用分析该 Post 的所有评论）
+                post_tags_result = await agent.use_llm(
                     prompt=tagging_prompt,
                     response_model=TagSystemGeneration  # 使用 TagSystemGeneration 模型
                 )
 
-                logger.info(f"[LLM RESPONSE] 评论 {comment.get('comment_id')} 分析成功")
-                logger.debug(f"[LLM RESPONSE] 结果类型: {type(comment_tags_result)}")
-                logger.debug(f"[LLM RESPONSE] 原始结果: {comment_tags_result}")
+                logger.info(f"[LLM RESPONSE] 帖子 {post.get('note_id')} 分析成功")
+                logger.debug(f"[LLM RESPONSE] 结果类型: {type(post_tags_result)}")
+                logger.debug(f"[LLM RESPONSE] 原始结果: {post_tags_result}")
 
-                # 转换为字典 - 改进解析逻辑
-                if hasattr(comment_tags_result, 'model_dump'):
-                    comment_tags = comment_tags_result.model_dump()
-                elif isinstance(comment_tags_result, str):
-                    comment_tags = _extract_json_from_response(comment_tags_result)
-                elif isinstance(comment_tags_result, dict):
-                    comment_tags = comment_tags_result
+                # 转换为字典
+                if hasattr(post_tags_result, 'model_dump'):
+                    post_tags = post_tags_result.model_dump()
+                elif isinstance(post_tags_result, str):
+                    post_tags = _extract_json_from_response(post_tags_result)
+                elif isinstance(post_tags_result, dict):
+                    post_tags = post_tags_result
                 else:
-                    logger.warning(f"[LLM RESPONSE] Unexpected comment_tags_result type: {type(comment_tags_result)}")
-                    comment_tags = {}
+                    logger.warning(f"[LLM RESPONSE] Unexpected post_tags_result type: {type(post_tags_result)}")
+                    post_tags = {}
 
-                logger.debug(f"[LLM RESPONSE] 解析后的标签: {comment_tags}")
-                logger.info(f"[LLM RESPONSE] 应用标签数量: {sum(len(v) if isinstance(v, list) else 1 for d in comment_tags.values() if isinstance(d, dict) for v in d.values()) if isinstance(comment_tags, dict) else 0}")
+                logger.debug(f"[LLM RESPONSE] 解析后的标签: {post_tags}")
+                logger.info(f"[LLM RESPONSE] 应用标签数量: {sum(len(v) if isinstance(v, list) else 1 for d in post_tags.values() if isinstance(d, dict) for v in d.values()) if isinstance(post_tags, dict) else 0}")
                 logger.info("-" * 60)
 
-                # 统计标签应用 - 按二级分类统计（参考代码的方式）
-                if isinstance(comment_tags, dict):
-                    for category_key, category_value in comment_tags.items():
+                # 统计标签应用 - 按二级分类统计
+                if isinstance(post_tags, dict):
+                    for category_key, category_value in post_tags.items():
                         if isinstance(category_value, dict):
                             for subcategory_key, tags_list in category_value.items():
                                 # 确保二级分类存在于统计字典中
@@ -1039,37 +1068,37 @@ async def analyze_comments_with_tags_skill(
                         else:
                             logger.debug(f"Category value is not a dict: {category_key} = {category_value}")
                 else:
-                    logger.warning(f"Invalid comment_tags format for comment {comment.get('comment_id')}: {type(comment_tags)}")
-                    comment_tags = {}
+                    logger.warning(f"Invalid post_tags format for post {post.get('note_id')}: {type(post_tags)}")
+                    post_tags = {}
 
                 analyzed_results.append({
-                    "comment_id": comment.get('comment_id'),
-                    "user_nickname": comment.get('user_nickname', 'Anonymous'),
-                    "content": comment.get('content', ''),
-                    "tags": comment_tags
+                    "note_id": post.get('note_id'),
+                    "title": post.get('title', ''),
+                    "comments_count": len(comments),
+                    "tags": post_tags
                 })
 
             except Exception as e:
                 logger.error("=" * 60)
-                logger.error(f"[LLM ERROR] 评论 {comment.get('comment_id')} 分析失败")
+                logger.error(f"[LLM ERROR] 帖子 {post.get('note_id')} 分析失败")
                 logger.error(f"[LLM ERROR] 错误类型: {type(e).__name__}")
                 logger.error(f"[LLM ERROR] 错误信息: {str(e)}")
-                logger.error(f"[LLM ERROR] 用户: {comment.get('user_nickname', 'Anonymous')}")
-                logger.error(f"[LLM ERROR] 评论内容: {comment.get('content', '')[:200]}...")
+                logger.error(f"[LLM ERROR] 帖子标题: {post.get('title', '')[:100]}...")
+                logger.error(f"[LLM ERROR] 评论数量: {len(comments)}")
                 import traceback
                 logger.error(f"[LLM ERROR] 完整堆栈:\n{''.join(traceback.format_tb(e.__traceback__))}")
                 logger.error("=" * 60)
-                # 失败的评论添加空标签
+                # 失败的帖子添加空标签
                 analyzed_results.append({
-                    "comment_id": comment.get('comment_id'),
-                    "user_nickname": comment.get('user_nickname', 'Anonymous'),
-                    "content": comment.get('content', ''),
+                    "note_id": post.get('note_id'),
+                    "title": post.get('title', ''),
+                    "comments_count": len(comments),
                     "tags": {},
                     "error": str(e),
                     "error_type": type(e).__name__
                 })
 
-        # 聚合所有评论中匹配到的标签
+        # 聚合所有 Post 中匹配到的标签
         aggregated_tags = {
             "人群场景": {},
             "功能价值": {},
@@ -1078,9 +1107,9 @@ async def analyze_comments_with_tags_skill(
         }
 
         for result in analyzed_results:
-            comment_tags = result.get("tags", {})
-            if isinstance(comment_tags, dict):
-                for category_key, category_value in comment_tags.items():
+            post_tags = result.get("tags", {})
+            if isinstance(post_tags, dict):
+                for category_key, category_value in post_tags.items():
                     # 确保分类键存在于聚合字典中
                     if category_key not in aggregated_tags:
                         aggregated_tags[category_key] = {}
@@ -1109,16 +1138,32 @@ async def analyze_comments_with_tags_skill(
             "functional_value": aggregated_tags.get("功能价值", {}),
             "assurance_value": aggregated_tags.get("保障价值", {}),
             "experience_value": aggregated_tags.get("体验价值", {}),
-            "total_comments_analyzed": len(sample_comments),
+            "total_posts_analyzed": len(analyzed_results),
             "total_tags_applied": total_tags_applied,
-            "analysis_summary": f"基于 {len(sample_comments)} 条评论生成的标签体系，共应用 {total_tags_applied} 个标签",
+            "analysis_summary": f"基于 {len(analyzed_results)} 个帖子的评论生成的标签体系，共应用 {total_tags_applied} 个标签",
             "tag_statistics": tag_statistics
         }
 
-        logger.info(f"Tag analysis complete: {total_tags_applied} tags applied across {len(sample_comments)} comments")
+        logger.info(f"Tag analysis complete: {total_tags_applied} tags applied across {len(analyzed_results)} posts")
 
         # 第四步：生成用户画像
         logger.info("Step 3: Generating user personas from comments...")
+        
+        # 重新构建所有 Post 的评论文本用于用户画像生成
+        all_comments_for_persona = []
+        for post in posts_with_comments:
+            analysis = post.get('analysis', {})
+            is_relevant = analysis.get('relevant', True)
+            if is_relevant:
+                comments = post.get('comments_data', [])
+                all_comments_for_persona.extend(comments)
+        
+        # 构建用户画像的评论文本
+        persona_comments_text = "\n".join([
+            f"{i+1}. 用户: {c.get('user_nickname', 'Anonymous')}\n   评论: {c.get('content', '')}\n"
+            for i, c in enumerate(all_comments_for_persona)
+        ])
+        
         persona_generation_prompt = f"""# 你是一名用户画像分析师。
 
 ## 分析需求和概念：
@@ -1173,7 +1218,7 @@ async def analyze_comments_with_tags_skill(
 {business_idea}
 
 ## 用户评论文本（显示前30条）:
-{comments_text[:3000]}
+{persona_comments_text[:3000]}
 
 请以 JSON 格式返回用户画像分析结果：
 
@@ -1209,7 +1254,7 @@ async def analyze_comments_with_tags_skill(
             logger.info("=" * 80)
             logger.info("[LLM REQUEST] 开始生成用户画像")
             logger.info(f"[LLM REQUEST] 业务创意: {business_idea}")
-            logger.info(f"[LLM REQUEST] 评论数量: {len(sample_comments)}")
+            logger.info(f"[LLM REQUEST] 评论数量: {len(all_comments_for_persona)}")
             logger.debug(f"[LLM REQUEST] Prompt 长度: {len(persona_generation_prompt)} 字符")
             logger.debug(f"[LLM REQUEST] Prompt 内容:\n{persona_generation_prompt[:1000]}...")  # 只记录前1000字符
 
@@ -1239,8 +1284,8 @@ async def analyze_comments_with_tags_skill(
                 "success": True,
                 "tag_analysis": tag_analysis,
                 "analyzed_results": analyzed_results,
-                "sample_size": len(sample_comments),
-                "total_comments": total_comments,
+                "total_posts_analyzed": len(analyzed_results),
+                "total_comments": len(all_comments_for_persona),
                 "persona_analysis": persona_analysis
             }
 
@@ -1257,8 +1302,8 @@ async def analyze_comments_with_tags_skill(
                 "success": True,
                 "tag_analysis": tag_analysis,
                 "analyzed_results": analyzed_results,
-                "sample_size": len(sample_comments),
-                "total_comments": total_comments,
+                "total_posts_analyzed": len(analyzed_results),
+                "total_comments": len(all_comments_for_persona),
                 "persona_analysis": None,
                 "persona_error": str(e),
                 "persona_error_type": type(e).__name__

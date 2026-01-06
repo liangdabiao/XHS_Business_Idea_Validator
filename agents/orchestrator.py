@@ -633,7 +633,7 @@ class OrchestratorAgent(BaseAgent):
             tag_analysis = step_result.get("data", {}).get("tag_analysis", {})
             logger.info(
                 f"analyze_comments_with_tags completed: "
-                f"{tag_analysis.get('total_comments_analyzed', 0)} comments analyzed, "
+                f"{tag_analysis.get('total_posts_analyzed', 0)} posts analyzed, "
                 f"{tag_analysis.get('total_tags_applied', 0)} tags applied"
             )
 

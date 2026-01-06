@@ -1,0 +1,48 @@
+{
+  "combined_analysis": {
+    "success": true,
+    "analysis": {
+      "overall_score": 72,
+      "market_validation_summary": "赤坎古镇在深圳的流行主要得益于其作为短途旅游目的地的吸引力，尤其是影视作品拍摄地、文化活动和节假日特别活动的吸引力。用户对该地的节日氛围和活动体验有较高期待，但也对人流量、票价和活动安排存在一些顾虑。市场需求较大，但竞争也较为激烈，现有的解决方案覆盖了一些关键需求。",
+      "key_pain_points": [
+        "人流量大，较为拥挤",
+        "票价较贵，缺乏套票优惠",
+        "活动和门票信息不明确"
+      ],
+      "existing_solutions": [
+        "住在古镇里",
+        "圣诞夜活动",
+        "高铁直达赤坎的交通方案"
+      ],
+      "market_opportunities": [
+        "提供更详细的门票和活动信息",
+        "开发套票或优惠票务方案",
+        "优化游客流量管理以提升体验"
+      ],
+      "recommendations": [
+        "创建综合信息平台，提供门票、活动和住宿的详细信息",
+        "设计更具吸引力的套票和优惠方案，吸引敏感于价格的消费者",
+        "引入智能化游客管理系统，减少拥堵，提高游客体验"
+      ],
+      "metadata": {
+        "total_posts_analyzed": 20,
+        "relevant_posts": 19,
+        "avg_engagement_score": 4.947368421052632,
+        "avg_sentiment": 0.5789473684210527,
+        "sentiment_distribution": {
+          "positive": 9,
+          "neutral": 10,
+          "negative": 0
+        },
+        "total_comments_analyzed": 74,
+        "recent_posts_30days": 0,
+        "top_posts_engagement": [
+          5813,
+          1802,
+          1020
+        ],
+        "analysis_date": "2026-01-06T15:26:17.051424"
+      }
+    }
+  }
+}
