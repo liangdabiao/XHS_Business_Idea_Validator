@@ -611,59 +611,47 @@ async def generate_html_report_skill(
         </div>
         """
 
-        # 辅助函数：生成标签层级HTML
-        def render_tag_category(category_name: str, category_data: dict, category_color: str) -> str:
-            if not category_data:
-                return ""
-
-            html_parts = []
-            html_parts.append(f"""
+        # 按二级分类展示标签统计（参考代码的方式）
+        tag_statistics = tag_data.get("tag_statistics", {})
+        
+        if tag_statistics:
+            html += '        <div class="word-frequency-grid">\n'
+            
+            for subcategory, tag_counts in tag_statistics.items():
+                if not tag_counts:
+                    continue
+                
+                # 按出现次数排序
+                sorted_tags = sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)
+                
+                html_parts = []
+                html_parts.append(f"""
         <div class="word-frequency-category">
-            <h3 style="color: {category_color}; border-color: {category_color};">{category_name}</h3>
-            """)
+            <h3>{subcategory}</h3>
+            <div style="margin-bottom: 15px;">
+                <div style="font-weight: 600; color: #555; margin-bottom: 8px; font-size: 14px;">标签统计（按出现次数排序）</div>
+        """)
 
-            for subcategory, tags in category_data.items():
-                if isinstance(tags, list) and tags:
-                    html_parts.append(f'            <div style="margin-bottom: 15px;">')
-                    html_parts.append(f'                <div style="font-weight: 600; color: #555; margin-bottom: 8px; font-size: 14px;">{subcategory}</div>')
+                for tag, count in sorted_tags[:10]:  # 限制显示前10个标签
+                    # 判断标签情感（负面标签以"-"开头）
+                    is_negative = tag.startswith("-")
+                    display_tag = tag[1:] if is_negative else tag
+                    sentiment_class = "sentiment-negative" if is_negative else "sentiment-positive"
+                    sentiment_label = "负面" if is_negative else "正面"
 
-                    for tag in tags[:10]:  # 限制显示前10个标签
-                        # 获取标签统计
-                        tag_key = f"{category_name}.{subcategory}.{tag}"
-                        tag_count = tag_data.get("tag_statistics", {}).get(tag_key, 0)
-
-                        # 判断标签情感（负面标签以"-"开头）
-                        is_negative = tag.startswith("-")
-                        display_tag = tag[1:] if is_negative else tag
-                        sentiment_class = "sentiment-negative" if is_negative else "sentiment-positive"
-                        sentiment_label = "负面" if is_negative else "正面"
-
-                        html_parts.append(f"""
+                    html_parts.append(f"""
                 <div class="tag-item">
                     <div class="tag-name">{display_tag}</div>
                     <div class="tag-meta">
-                        {f'<span class="tag-count">{tag_count}</span>' if tag_count > 0 else ''}
+                        <span class="tag-count">{count}</span>
                         <span class="tag-sentiment {sentiment_class}">{sentiment_label}</span>
                     </div>
                 </div>""")
 
-                    html_parts.append(f'            </div>')
-
-            html_parts.append("        </div>")
-            return "".join(html_parts)
-
-        # 渲染四个维度
-        tag_categories = [
-            ("人群场景", tag_data.get("crowd_scenario", {}), "#ff6b6b"),
-            ("功能价值", tag_data.get("functional_value", {}), "#4ecdc4"),
-            ("保障价值", tag_data.get("assurance_value", {}), "#45b7d1"),
-            ("体验价值", tag_data.get("experience_value", {}), "#f9ca24")
-        ]
-
-        html += '        <div class="word-frequency-grid">\n'
-        for category_name, category_data, color in tag_categories:
-            html += render_tag_category(category_name, category_data, color)
-        html += '        </div>\n'
+                html_parts.append('            </div>\n        </div>')
+                html += "".join(html_parts)
+            
+            html += '        </div>\n'
 
     # 新增：用户画像分析部分
     if persona_data and persona_data.get("personas"):

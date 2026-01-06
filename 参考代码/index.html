@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV处理工具</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Amazon/Trustpilot评论分析</h1>
+        <h3>上传CSV文件</h3>
+        <p style="color:red">注意：直接上传爬虫插件的csv文件就可以，如果是自己的review文件csv，那么在需要分析的csv字段改名为： review_content。  查看<a target="_blank" href="https://juejin.cn/post/7503799944064778240">使用教程</a></p>
+        <p style="color:blue">爬虫插件下载地址：https://chromewebstore.google.com/detail/cljbfnedccphacfneigoegkiieckjndh  ，直接一键爬虫全部trustpolit和amazon评论</p>
+        <input type="file" id="csvFile" accept=".csv">
+        <button onclick="uploadFile()">上传处理</button>
+        <p>上传文件格式demo: <a href="{{ url_for('static', filename='demo.csv') }}">下载</a></p>
+        <div id="loading" class="hidden">处理中，请稍候...</div>
+        <div id="downloadSection" class="hidden">
+            <a id="downloadLink" download="processed.csv">下载处理后的文件</a>
+        </div>
+        <div id="show_result">
+            <h2>处理结果</h2>
+            <div id="wordFrequencyResults">
+                <h3>词频分析结果</h3>
+                <div id="result"></div>
+                <div id="wordCloud"></div>
+
+                <h3>用户画像分析结果:</h3>
+                <div id="persona_result"></div> 
+            </div>
+        </div>
+       
+    </div>
+    <!-- 引入 ECharts -->
+    <script src="{{ url_for('static', filename='echarts.min.js') }}"></script>
+    <!-- 新增错误提示区域 -->
+    <div id="errorSection" class="hidden" style="color: red; margin: 10px 0;"></div>
+    
+    <!-- 修改后的JavaScript部分 -->
+    <script>
+    function showError(message) {
+        const errorSection = document.getElementById('errorSection');
+        errorSection.innerHTML = message;
+        errorSection.classList.remove('hidden');
+        setTimeout(() => errorSection.classList.add('hidden'), 5000);
+    }
+    
+    function uploadFile() {
+        const chartIds = [];
+        console.log('开始上传文件处理流程');
+        const file = document.getElementById('csvFile').files[0];
+        if(!file) {
+            alert('请先选择CSV文件');
+            return;
+        }
+        
+        const formData = new FormData();
+        formData.append('file', file);
+    
+        // 显示加载提示
+        console.log('显示加载提示');
+        document.getElementById('loading').classList.remove('hidden');
+    
+        fetch('/upload', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // 隐藏加载提示
+            document.getElementById('loading').classList.add('hidden');
+            const downloadLink = document.getElementById('downloadLink');
+            downloadLink.href = data.filepath;
+            document.getElementById('downloadSection').classList.remove('hidden');
+            
+            // 显示词频分析结果
+        if(data.wordFrequency) {
+            let resultHTML = '';
+            const validCategories = []; // 存储有效分类名
+    
+            for(const [category, words] of Object.entries(data.wordFrequency)) {
+                // 跳过空分类
+                if(Object.keys(words).length === 0) continue;
+                
+                const chineseCategory = decodeURIComponent(JSON.parse('"' + category + '"'));
+                validCategories.push(category); // 记录有效分类
+                
+                // 生成列表
+                resultHTML += `<h4>${chineseCategory}</h4><ul>`;
+                for(const [word, count] of Object.entries(words)) {
+                    resultHTML += `<li>${word}: ${count}</li>`;
+                }
+                resultHTML += '</ul>';
+                
+                // 生成图表容器（使用安全ID）
+                const safeId = 'chart_' + validCategories.length;
+                resultHTML += `<div id="${safeId}" style="width:100%;height:400px;"></div>`;
+            }
+            document.getElementById('result').innerHTML = resultHTML;
+
+            
+            
+            // 初始化图表（按有效分类顺序）
+            validCategories.forEach((category, index) => {
+                const chartId = 'chart_' + (index + 1);
+                const chartDom = document.getElementById(chartId);
+                
+                if(chartDom) {
+                    const myChart = echarts.init(chartDom);
+                    const words = data.wordFrequency[category];
+                    const chineseCategory = decodeURIComponent(JSON.parse('"' + category + '"'));
+                    
+                    // 准备图表数据
+                    const chartWords = Object.entries(words)
+                        .sort((a, b) => b[1] - a[1])
+                        .slice(0, 10);
+                    
+                    const option = {
+                        title: {
+                            text: `${chineseCategory} - 词频Top10`
+                        },
+                        tooltip: {},
+                        xAxis: { type: 'value' },
+                        yAxis: {
+                            type: 'category',
+                            data: chartWords.map(item => item[0])
+                        },
+                        series: [{
+                            name: '出现次数',
+                            type: 'bar',
+                            data: chartWords.map(item => item[1])
+                        }]
+                    };
+                    myChart.setOption(option);
+                }
+            });
+        }
+
+        if(data.persona) {
+            let persona_resultHTML = data.persona;
+            document.getElementById('persona_result').innerHTML = persona_resultHTML;
+        }
+        })
+        .catch(error => {
+            showError(error.error);
+            document.getElementById('loading').classList.add('hidden');
+        });
+    }
+    </script>
+</body>
+</html>

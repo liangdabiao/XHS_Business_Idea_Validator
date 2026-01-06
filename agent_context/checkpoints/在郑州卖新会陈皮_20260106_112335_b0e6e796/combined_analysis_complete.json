@@ -1,0 +1,48 @@
+{
+  "combined_analysis": {
+    "success": true,
+    "analysis": {
+      "overall_score": 70,
+      "market_validation_summary": "郑州市场对新会陈皮有一定需求，消费者对产品的真实性和可靠性有较大关注。现有痛点在于真假难辨、购买渠道不明确。虽然市场上有一些解决方案，但消费者对原产地直采和可靠品牌更有信心。",
+      "key_pain_points": [
+        "寻找正宗新会陈皮的地点",
+        "难以辨别新会陈皮的真假",
+        "线上购物缺乏信任"
+      ],
+      "existing_solutions": [
+        "正宗新会陈皮",
+        "天然生晒",
+        "直接找果农购买"
+      ],
+      "market_opportunities": [
+        "提供专业鉴定服务",
+        "建立可信赖的线下购买渠道",
+        "推出带有认证的品牌包装"
+      ],
+      "recommendations": [
+        "在郑州建立线下专卖店，提供正宗新会陈皮",
+        "与新会当地果农合作，保证产品来源真实性",
+        "提供陈皮鉴定服务，增加用户信任感"
+      ],
+      "metadata": {
+        "total_posts_analyzed": 20,
+        "relevant_posts": 18,
+        "avg_engagement_score": 4.277777777777778,
+        "avg_sentiment": 0.05555555555555555,
+        "sentiment_distribution": {
+          "positive": 1,
+          "neutral": 14,
+          "negative": 3
+        },
+        "total_comments_analyzed": 96,
+        "recent_posts_30days": 0,
+        "top_posts_engagement": [
+          1668,
+          104,
+          102
+        ],
+        "analysis_date": "2026-01-06T11:28:58.337815"
+      }
+    }
+  }
+}

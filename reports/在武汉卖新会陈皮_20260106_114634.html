@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>业务创意市场验证报告 - 在武汉卖新会陈皮</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #ff2442;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+            border-left: 4px solid #ff2442;
+            padding-left: 10px;
+        }
+        .score-box {
+            background: linear-gradient(135deg, #ffc107 0%, #ff9a9e 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .score {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .score-interpretation {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .summary {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+        .list-item {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        .sentiment-bar {
+            height: 30px;
+            background: #e9ecef;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .sentiment-positive {
+            height: 100%;
+            background: #28a745;
+            display: inline-block;
+        }
+        .sentiment-neutral {
+            height: 100%;
+            background: #6c757d;
+            display: inline-block;
+        }
+        .sentiment-negative {
+            height: 100%;
+            background: #dc3545;
+            display: inline-block;
+        }
+        .metadata {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #666;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #999;
+            font-size: 14px;
+        }
+        .word-frequency-section {
+            margin: 20px 0;
+        }
+        .word-frequency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 15px 0;
+        }
+        .word-frequency-category {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #ff2442;
+        }
+        .word-frequency-category h3 {
+            font-size: 16px;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        .tag-item {
+            background: white;
+            padding: 8px 12px;
+            margin: 6px 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+        .tag-name {
+            font-weight: 500;
+            color: #333;
+            flex: 1;
+        }
+        .tag-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+        }
+        .tag-count {
+            background: #ff2442;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .tag-sentiment {
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .sentiment-positive {
+            background: #d4edda;
+            color: #155724;
+        }
+        .sentiment-negative {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .sentiment-neutral {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+        .sentiment-mixed {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .tag-keywords {
+            font-size: 11px;
+            color: #666;
+            margin-top: 4px;
+        }
+        .persona-section {
+            margin: 20px 0;
+        }
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 15px 0;
+        }
+        .persona-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff2442;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .persona-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .persona-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        .persona-emotion {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .emotion-positive {
+            background: #d4edda;
+            color: #155724;
+        }
+        .emotion-neutral {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+        .emotion-negative {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .persona-section-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #666;
+            margin-top: 12px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .persona-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .persona-tag {
+            background: #f8f9fa;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #495057;
+        }
+        .persona-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .persona-list li {
+            padding: 4px 0;
+            font-size: 14px;
+            color: #495057;
+            position: relative;
+            padding-left: 16px;
+        }
+        .persona-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #ff2442;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>业务创意市场验证报告</h1>
+
+        <div class="metadata">
+            <strong>业务创意:</strong> 在武汉卖新会陈皮<br>
+            <strong>验证时间:</strong> 2026-01-06 11:46:34<br>
+            <strong>运行 ID:</strong> 在武汉卖新会陈皮_20260106_114302_b9007cf3
+        </div>
+
+        <h2>综合评分</h2>
+        <div class="score-box">
+            <div class="score">72</div>
+            <div class="score-interpretation">市场机会存在，需要进一步验证</div>
+        </div>
+
+        <h2>数据统计</h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-label">分析帖子数</div>
+                <div class="stat-value">20</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">相关帖子</div>
+                <div class="stat-value">17</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">平均互动评分</div>
+                <div class="stat-value">4.5</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">分析评论数</div>
+                <div class="stat-value">96</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">最近30天活跃</div>
+                <div class="stat-value">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">情感倾向</div>
+                <div class="stat-value" style="color: #6c757d">中性</div>
+            </div>
+        </div>
+
+        <h2>情感分布</h2>
+        <div class="summary">
+            <div style="margin-bottom: 10px;">
+                积极: 2 |
+                中性: 13 |
+                消极: 2
+            </div>
+            <div class="sentiment-bar">
+                <span class="sentiment-positive" style="width: 11.11111111111111%"></span> <span class="sentiment-neutral" style="width: 72.22222222222221%"></span> <span class="sentiment-negative" style="width: 11.11111111111111%"></span>
+            </div>
+        </div>
+
+        <h2>市场验证摘要</h2>
+        <div class="summary">
+            市场验证显示，在武汉市场中，新会陈皮有相当的需求，主要集中在对高品质、真实性、可靠购买渠道的关注。用户反馈显示出对产品品质和信任度的高度重视，这为在该市场通过提供高品质产品和良好客户服务建立竞争优势提供了可能性。然而，市场的活跃度较低，近期的互动量显示出一定的市场疲软迹象。因此，在进入市场时，需特别关注提高市场活跃度和用户互动。
+        </div>
+
+        <h2>关键痛点</h2>
+                <div class="list-item">缺乏高品质新会陈皮的渠道</div>
+        <div class="list-item">消费者难以辨别新会陈皮的真伪</div>
+        <div class="list-item">市场上存在冒充的假陈皮，消费者容易上当受骗</div>
+
+        <h2>现有解决方案</h2>
+                <div class="list-item">提供高品质的新会陈皮</div>
+        <div class="list-item">提供在线鉴别服务</div>
+        <div class="list-item">同仁堂作为可靠选择</div>
+
+        <h2>市场机会</h2>
+                <div class="list-item">建立品牌信任，通过认证和透明的供应链提高产品可信度</div>
+        <div class="list-item">开发在线平台，提供新会陈皮的鉴别、购买和用户教育服务</div>
+        <div class="list-item">利用武汉气候特性，推广新会陈皮的健康功效，针对早晚温差较大的季节性市场</div>
+
+        <h2>建议</h2>
+                <div class="list-item">通过建立透明的供应链和产品认证来提高产品的可信度和消费者信任</div>
+        <div class="list-item">开发用户教育和在线鉴别服务，以帮助消费者更好地理解和选择新会陈皮产品</div>
+        <div class="list-item">在推广中突出新会陈皮的健康效益，并与武汉的季节性健康需求相结合，以扩大市场影响力</div>
+
+        <h2>评论标签体系分析</h2>
+        <div class="summary">
+            <p><strong>分析评论数:</strong> 50 条</p>
+            <p><strong>应用标签数:</strong> 0 个</p>
+            <p>基于 50 条评论生成的标签体系，共应用 0 个标签</p>
+        </div>
+        
+        <h2>用户画像分析</h2>
+        <div class="summary">
+            <p><strong>生成画像数:</strong> 3 个典型用户</p>
+            <p>基于评论内容生成的典型用户画像分析</p>
+        </div>
+        <div class="persona-grid">
+        
+            <div class="persona-card">
+                <div class="persona-header">
+                    <div class="persona-name">用户画像 1: 女性 · 30-40岁</div>
+                    <span class="persona-emotion emotion-neutral">中性</span>
+                </div>
+
+                <div class="persona-section-title">需求关键词</div>
+                <div class="persona-tags">
+            <span class="persona-tag">品质</span>
+                    <span class="persona-tag">真实性</span>
+                    <span class="persona-tag">价格</span>
+                    <span class="persona-tag">口碑</span>
+                    <span class="persona-tag">产地</span>
+                    
+                </div>
+
+                <div class="persona-section-title">购买动机</div>
+                <ul class="persona-list">
+                                <li>寻找高性价比产品</li>
+                    <li>确保产品真实性</li>
+                    <li>口碑推荐</li>
+                    <li>产地直销</li>
+
+                </ul>
+
+                <div class="persona-section-title">用户标签</div>
+                <div class="persona-tags">
+            <span class="persona-tag">精打细算</span>
+                    <span class="persona-tag">重视产品真实性</span>
+                    <span class="persona-tag">口碑驱动</span>
+                    <span class="persona-tag">关注产地</span>
+                    <span class="persona-tag">偏好性价比</span>
+                    
+                </div>
+            </div>
+            
+            <div class="persona-card">
+                <div class="persona-header">
+                    <div class="persona-name">用户画像 2: 男性 · 35-45岁</div>
+                    <span class="persona-emotion emotion-neutral">中性</span>
+                </div>
+
+                <div class="persona-section-title">需求关键词</div>
+                <div class="persona-tags">
+            <span class="persona-tag">可靠性</span>
+                    <span class="persona-tag">正品</span>
+                    <span class="persona-tag">产地</span>
+                    <span class="persona-tag">价格</span>
+                    <span class="persona-tag">收藏</span>
+                    
+                </div>
+
+                <div class="persona-section-title">购买动机</div>
+                <ul class="persona-list">
+                                <li>确保购买正品</li>
+                    <li>投资收藏</li>
+                    <li>对产地有信任感</li>
+                    <li>价格合理</li>
+
+                </ul>
+
+                <div class="persona-section-title">用户标签</div>
+                <div class="persona-tags">
+            <span class="persona-tag">关注正品</span>
+                    <span class="persona-tag">有收藏爱好</span>
+                    <span class="persona-tag">理性消费者</span>
+                    <span class="persona-tag">产地信任</span>
+                    <span class="persona-tag">价格敏感</span>
+                    
+                </div>
+            </div>
+            
+            <div class="persona-card">
+                <div class="persona-header">
+                    <div class="persona-name">用户画像 3: 不确定 · 25-35岁</div>
+                    <span class="persona-emotion emotion-neutral">中性</span>
+                </div>
+
+                <div class="persona-section-title">需求关键词</div>
+                <div class="persona-tags">
+            <span class="persona-tag">安全性</span>
+                    <span class="persona-tag">口碑</span>
+                    <span class="persona-tag">推荐</span>
+                    <span class="persona-tag">个人体验</span>
+                    <span class="persona-tag">便捷性</span>
+                    
+                </div>
+
+                <div class="persona-section-title">购买动机</div>
+                <ul class="persona-list">
+                                <li>听取他人推荐</li>
+                    <li>个人体验</li>
+                    <li>关注安全性</li>
+                    <li>寻求可靠意见</li>
+
+                </ul>
+
+                <div class="persona-section-title">用户标签</div>
+                <div class="persona-tags">
+            <span class="persona-tag">信任口碑</span>
+                    <span class="persona-tag">寻求他人意见</span>
+                    <span class="persona-tag">重视安全性</span>
+                    <span class="persona-tag">希望便捷</span>
+                    <span class="persona-tag">注重个人体验</span>
+                    
+                </div>
+            </div>
+                    </div>
+
+        <h2>元数据</h2>
+        <div class="metadata">
+                    <strong>total_posts_analyzed:</strong> 20<br>
+            <strong>relevant_posts:</strong> 17<br>
+            <strong>avg_engagement_score:</strong> 4.470588235294118<br>
+            <strong>avg_sentiment:</strong> 0.058823529411764705<br>
+            <strong>sentiment_distribution:</strong> {'positive': 2, 'neutral': 13, 'negative': 2}<br>
+            <strong>total_comments_analyzed:</strong> 96<br>
+            <strong>recent_posts_30days:</strong> 0<br>
+            <strong>top_posts_engagement:</strong> [1669, 478, 190]<br>
+            <strong>analysis_date:</strong> 2026-01-06T11:46:34.384945<br>
+        </div>
+
+        <div class="footer">
+            <p>报告生成时间: 2026-01-06 11:46:34</p>
+            <p>由 Business Idea Validator Agent System 自动生成</p>
+            <p style="margin-top: 10px; font-size: 14px; color: #888; font-style: italic;">小提示: 相关资料请到 agent_context/checkpoints/在武汉卖新会陈皮_20260106_114302_b9007cf3/ 目录下查看</p>
+        </div>
+    </div>
+</body>
+</html>

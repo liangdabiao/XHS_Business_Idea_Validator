@@ -187,6 +187,15 @@ class ConfigManager:
         if 'LOGGING_LEVEL' in os.environ:
             self._set_nested('logging.level', os.environ['LOGGING_LEVEL'].upper())
 
+        # Analyzer Max Posts
+        if 'ANALYZER_MAX_POSTS' in os.environ:
+            try:
+                max_posts = int(os.environ['ANALYZER_MAX_POSTS'])
+                self._set_nested('agents.scraper.max_posts_to_analyze', max_posts)
+                logger.info(f"Loaded ANALYZER_MAX_POSTS from env: {max_posts}")
+            except ValueError:
+                logger.warning(f"Invalid ANALYZER_MAX_POSTS value: {os.environ['ANALYZER_MAX_POSTS']}")
+
     def _set_nested(self, key: str, value: Any):
         """设置嵌套配置值"""
         keys = key.split('.')

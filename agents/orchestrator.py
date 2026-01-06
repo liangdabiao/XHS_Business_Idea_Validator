@@ -254,8 +254,21 @@ class OrchestratorAgent(BaseAgent):
         comments_per_note = kwargs.get("comments_per_note", 20)
         use_fast_mode = kwargs.get("use_user_input_as_keyword", False)
 
+        # 从配置获取最大分析帖子数
+        from agents.config import ConfigManager
+        config_mgr = ConfigManager()
+        max_notes = config_mgr.get('agents.scraper.max_posts_to_analyze', 20)
+        logger.info(f"使用配置的最大帖子分析数: {max_notes} (来源: ANALYZER_MAX_POSTS)")
+
         # Always use the user input directly as the search keyword (remove keyword generation step)
         logger.info(f"直接使用用户输入作为搜索关键词 - '{business_idea}'")
+
+        # Fast mode: 减少数据量
+        if use_fast_mode:
+            pages_per_keyword = 1
+            comments_per_note = 5
+            logger.info(f"[快速模式] 减少数据量: pages=1, comments=5")
+
         steps = [
             ExecutionStep(
                 step_id="scrape_data",
@@ -265,7 +278,7 @@ class OrchestratorAgent(BaseAgent):
                 params={
                     "pages_per_keyword": pages_per_keyword,
                     "comments_per_note": comments_per_note,
-                    "max_notes": 50
+                    "max_notes": max_notes
                 },
                 depends_on=[],  # 无依赖，直接开始
                 retry_on_failure=True,

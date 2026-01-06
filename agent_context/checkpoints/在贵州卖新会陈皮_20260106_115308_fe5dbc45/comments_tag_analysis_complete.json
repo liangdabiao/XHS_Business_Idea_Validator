@@ -1,0 +1,587 @@
+{
+  "tag_analysis": {
+    "success": true,
+    "tag_analysis": {
+      "crowd_scenario": {},
+      "functional_value": {},
+      "assurance_value": {},
+      "experience_value": {},
+      "total_comments_analyzed": 50,
+      "total_tags_applied": 0,
+      "analysis_summary": "基于 50 条评论生成的标签体系，共应用 0 个标签",
+      "tag_statistics": {},
+      "persona_analysis": {
+        "personas": [
+          {
+            "gender": "女性",
+            "age_estimate": "30-40岁",
+            "demand_keywords": [
+              "品质",
+              "年份",
+              "真实性",
+              "品牌",
+              "产地"
+            ],
+            "purchase_motivation": [
+              "追求高品质",
+              "关注年份和产地",
+              "社区推荐",
+              "品牌信任",
+              "健康养生"
+            ],
+            "emotional_tone": "中性",
+            "persona_tags": [
+              "品质控",
+              "讲究年份",
+              "重视产地",
+              "品牌忠诚",
+              "社区活跃"
+            ]
+          },
+          {
+            "gender": "男性",
+            "age_estimate": "25-35岁",
+            "demand_keywords": [
+              "价格",
+              "真实性",
+              "产地",
+              "购买渠道",
+              "品牌"
+            ],
+            "purchase_motivation": [
+              "寻找性价比",
+              "担心被骗",
+              "看重产地",
+              "价格敏感",
+              "品牌比较"
+            ],
+            "emotional_tone": "消极",
+            "persona_tags": [
+              "价格敏感",
+              "担心上当",
+              "注重产地",
+              "渠道关注",
+              "品牌探讨"
+            ]
+          },
+          {
+            "gender": "女性",
+            "age_estimate": "40-50岁",
+            "demand_keywords": [
+              "健康",
+              "养生",
+              "传统",
+              "习惯",
+              "推荐"
+            ],
+            "purchase_motivation": [
+              "健康习惯",
+              "养生需求",
+              "传统文化",
+              "朋友推荐",
+              "产品口碑"
+            ],
+            "emotional_tone": "积极",
+            "persona_tags": [
+              "养生达人",
+              "传统文化爱好者",
+              "健康意识强",
+              "口碑驱动",
+              "社交活跃"
+            ]
+          }
+        ],
+        "total_personas": 3,
+        "analysis_summary": "基于评论内容生成的典型用户画像分析"
+      }
+    },
+    "analyzed_results": [
+      {
+        "comment_id": "69568959000000001601d412",
+        "user_nickname": "Eric",
+        "content": "这是小程序叫什么名字",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "6956292a000000000e0350a8",
+        "user_nickname": "黄豆豆的666",
+        "content": "这个牛[哇R][哇R]  #助农赋能[搜索高亮]#",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "695624ba000000001d0096c5",
+        "user_nickname": "甄选农品",
+        "content": "有一说一，需要可以了解一下",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "692ab44d000000001d01c99e",
+        "user_nickname": "XoveC ⁹.",
+        "content": "你好三宝怎么卖",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "69599f8e000000001601d3b2",
+        "user_nickname": "享受一起快乐时光",
+        "content": "",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "694a99ba000000001d0243c1",
+        "user_nickname": "润丽陈皮茶行",
+        "content": "您的养生钱，是否成了智商税？ http://xhslink.com/o/9DuWGK7CQO7 \n复制后打开【小红书】查看笔记！",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "694a01fd000000001502e0b4",
+        "user_nickname": "去有风的地方",
+        "content": "一路看下来，没有一个发线上店铺的",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "694921000000000032000171",
+        "user_nickname": "90后新会柑农的日常",
+        "content": "来",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "6940257f0000000038026eea",
+        "user_nickname": "新阳陈皮",
+        "content": "自己晒是好很多的[赞R]",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "691134db0000000039005cbf",
+        "user_nickname": "低语中",
+        "content": "话说这种陈皮有没有熟的直接生吃咸咸的那种陈皮啊",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "68f1a36d0000000039033a2b",
+        "user_nickname": "海阔天空",
+        "content": "请问最终你在哪里买？",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "68df75cb0000000033004fdc",
+        "user_nickname": "知食分子",
+        "content": "算了  我怕被骗 买同仁堂的算了[笑哭R]",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "68db7692000000003902d544",
+        "user_nickname": "海阔天空",
+        "content": "请问最终买了那家的？",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "68b711230000000030025075",
+        "user_nickname": "So雅雅",
+        "content": "靓野",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "68b2b729000000000b01eb54",
+        "user_nickname": "卖灵芝的小女孩（广州如意坊实体店）",
+        "content": "这个可以不 我自己配茶喝 15年左右",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "68b00a600000000009028940",
+        "user_nickname": "陈皮之家",
+        "content": "可以了解",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "68aaf6170000000030026f66",
+        "user_nickname": "tomorrow",
+        "content": "我这有粤一 #宝的新会陈皮[搜索高亮]#",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "68aac20a000000002603688a",
+        "user_nickname": "陈皮Vicky",
+        "content": "我家新会皮推荐",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "68a689ff0000000030027653",
+        "user_nickname": "小红薯671D2085",
+        "content": "这样的",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "695c7055000000001d00c0bc",
+        "user_nickname": "出逃椰子oO",
+        "content": "请问这个是真的吗～有15年吗",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "6953a9ee0000000006018fd5",
+        "user_nickname": "香蕉你个芭乐",
+        "content": "帮忙看看 包装是 #十年新会陈皮[搜索高亮]#  带地理国家标志[抽泣R]",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "69534502000000001502d31e",
+        "user_nickname": "黄油多多",
+        "content": "这种的是几年的呀",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "6950dcb6000000000f02794e",
+        "user_nickname": "噼里啪啦",
+        "content": "这真吗，1500一斤",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "6950c338000000001d01eda3",
+        "user_nickname": "咖啡🐙鱼",
+        "content": "看看我这是几年的[doge]",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "694e3e36000000000e036f82",
+        "user_nickname": "一把撕烂你的内裤",
+        "content": "",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "6947c4ed000000001702febc",
+        "user_nickname": "～简约而不简单～",
+        "content": "你好，请帮看看，这个是 #新会陈皮[搜索高亮]# 麽？多少年的",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "69476696000000001601e638",
+        "user_nickname": "XV",
+        "content": "看一下我的有多久年份[偷笑R]",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "69461177000000003802e1f4",
+        "user_nickname": "Lulu",
+        "content": "10年陈皮，发朋友圈，有人说假的[哭惹R][哭惹R][哭惹R]",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "6943c4c10000000038004a99",
+        "user_nickname": "三石弟弟",
+        "content": "老师可以帮忙看一下这是正常的陈皮吗，年份说是十年的",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "69439f91000000003803ef0c",
+        "user_nickname": "丫丫",
+        "content": "可以帮忙看看真假吗？说是10年",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "6942003900000000380059a5",
+        "user_nickname": "💖",
+        "content": "你好，麻烦看看这真的吗？",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "694090cc000000000601b8ab",
+        "user_nickname": "小红薯65AE48A3",
+        "content": "商场散称的，说是15年的，感觉被坑了，越想越气",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "69401133000000003803354f",
+        "user_nickname": "夜九",
+        "content": "药店买的说的是10年，外表感觉一般，但香味还可以，就买了",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "694001ef0000000038033bbf",
+        "user_nickname": "空白",
+        "content": "老师帮忙看看真假",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "695a95a8000000001d026987",
+        "user_nickname": "吃土豆长大的马铃薯",
+        "content": "现在有吗？打算10几号去。[飞吻R][飞吻R][哭惹R][哭惹R]",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "695885520000000014036ad2",
+        "user_nickname": "靜靜",
+        "content": "还有吗",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "695874a100000000190014af",
+        "user_nickname": "MM",
+        "content": "你好，现在还有现摘的果吗？",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "6957dc29000000001803ae92",
+        "user_nickname": "Ga",
+        "content": "还有圈枝果吗？多少钱一斤？",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "69575aa7000000001600e989",
+        "user_nickname": "寇小寇",
+        "content": "请问是哪里？",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "69564bff000000001600feea",
+        "user_nickname": "1裸辞减肥",
+        "content": "现在还有吗",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "69561807000000001d0253af",
+        "user_nickname": "吴凡",
+        "content": "地址麻烦发一个",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "6954a566000000001601ccb5",
+        "user_nickname": "小红薯fqn",
+        "content": "现在还有吗",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "69549b0b0000000016022ae9",
+        "user_nickname": "ching ching yau",
+        "content": "還有嗎？",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "6953ec010000000006018905",
+        "user_nickname": "大牙",
+        "content": "几钱斤？2号过来",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "695385dd000000000f028efb",
+        "user_nickname": "国家栋梁女士",
+        "content": "元旦有没有，位置在哪里",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "694f82ee00000000180237c2",
+        "user_nickname": "随心飞行",
+        "content": "过两日还有吗？圈枝还系驳枝？几钱一斤",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "694ead700000000016025b4c",
+        "user_nickname": "喜欢淘~淘~淘的鱼",
+        "content": "请问位置？价钱？[偷笑R]",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "694e81fd000000001600d0c1",
+        "user_nickname": "君 ",
+        "content": "现在还有 #新会柑[搜索高亮]# 摘吗",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "694cadbc0000000005038f76",
+        "user_nickname": "五行食养暖羊羊",
+        "content": "1.3还有吗",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      },
+      {
+        "comment_id": "692913ca000000003801241d",
+        "user_nickname": "剪刀石头布",
+        "content": "有铁桶还是不锈钢桶保存的？",
+        "tags": {},
+        "error": "LLM error: Expecting value: line 1 column 1 (char 0)",
+        "error_type": "ValueError"
+      }
+    ],
+    "sample_size": 50,
+    "total_comments": 156,
+    "persona_analysis": {
+      "personas": [
+        {
+          "gender": "女性",
+          "age_estimate": "30-40岁",
+          "demand_keywords": [
+            "品质",
+            "年份",
+            "真实性",
+            "品牌",
+            "产地"
+          ],
+          "purchase_motivation": [
+            "追求高品质",
+            "关注年份和产地",
+            "社区推荐",
+            "品牌信任",
+            "健康养生"
+          ],
+          "emotional_tone": "中性",
+          "persona_tags": [
+            "品质控",
+            "讲究年份",
+            "重视产地",
+            "品牌忠诚",
+            "社区活跃"
+          ]
+        },
+        {
+          "gender": "男性",
+          "age_estimate": "25-35岁",
+          "demand_keywords": [
+            "价格",
+            "真实性",
+            "产地",
+            "购买渠道",
+            "品牌"
+          ],
+          "purchase_motivation": [
+            "寻找性价比",
+            "担心被骗",
+            "看重产地",
+            "价格敏感",
+            "品牌比较"
+          ],
+          "emotional_tone": "消极",
+          "persona_tags": [
+            "价格敏感",
+            "担心上当",
+            "注重产地",
+            "渠道关注",
+            "品牌探讨"
+          ]
+        },
+        {
+          "gender": "女性",
+          "age_estimate": "40-50岁",
+          "demand_keywords": [
+            "健康",
+            "养生",
+            "传统",
+            "习惯",
+            "推荐"
+          ],
+          "purchase_motivation": [
+            "健康习惯",
+            "养生需求",
+            "传统文化",
+            "朋友推荐",
+            "产品口碑"
+          ],
+          "emotional_tone": "积极",
+          "persona_tags": [
+            "养生达人",
+            "传统文化爱好者",
+            "健康意识强",
+            "口碑驱动",
+            "社交活跃"
+          ]
+        }
+      ],
+      "total_personas": 3,
+      "analysis_summary": "基于评论内容生成的典型用户画像分析"
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "posts_with_comments_analyses": {
+    "success": true,
+    "total_posts": 2,
+    "analyses": [
+      {
+        "note_id": "695a0f480000000022008b54",
+        "title": "卖陈皮",
+        "analysis": {
+          "note_id": "695a0f480000000022008b54",
+          "title": "卖陈皮",
+          "relevant": true,
+          "pain_points": [],
+          "solutions_mentioned": [],
+          "market_signals": [],
+          "user_insights": [],
+          "user_needs": [],
+          "feedback_sentiment": "neutral",
+          "sentiment": "neutral",
+          "engagement_score": 1,
+          "analysis_summary": "帖子标题和描述表明这是一个关于在天津销售陈皮的广告，直接与业务创意相关。由于没有用户评论，无法提取具体的用户痛点、需求或情感倾向。整体互动较低，未显示显著的市场信号。",
+          "comments_count": 0
+        }
+      },
+      {
+        "note_id": "68ca13700000000012015115",
+        "title": "地道新会 品质之选 天津",
+        "analysis": {
+          "note_id": "68ca13700000000012015115",
+          "title": "地道新会 品质之选 天津",
+          "relevant": true,
+          "pain_points": [],
+          "solutions_mentioned": [
+            "提供10年和15年的新会陈皮",
+            "团购优惠"
+          ],
+          "market_signals": [
+            "新会陈皮在天津有市场需求",
+            "作为中秋节礼品可能受欢迎"
+          ],
+          "user_insights": [],
+          "user_needs": [],
+          "feedback_sentiment": "neutral",
+          "sentiment": "neutral",
+          "engagement_score": 1,
+          "analysis_summary": "该帖子与在天津卖新会陈皮的业务创意相关，提供了不同年份的产品选择和团购优惠，但因缺乏互动和评论，尚无法从用户反馈中提取具体需求和情感。",
+          "comments_count": 0
+        }
+      }
+    ],
+    "relevant_posts": [
+      {
+        "post": {
+          "note_id": "695a0f480000000022008b54",
+          "title": "卖陈皮",
+          "desc": "#陈皮  #看的见的品质  #买到挑好的  出货天津",
+          "type": "normal",
+          "publish_time": 0,
+          "liked_count": 0,
+          "collected_count": 0,
+          "shared_count": 0,
+          "comments_count": 0,
+          "user_id": "",
+          "user_nickname": "岁光✨陈皮化橘红",
+          "user_avatar": "",
+          "cover_url": null,
+          "images": [],
+          "keyword_matched": "在天津卖新会陈皮",
+          "comments_data": [],
+          "comments_fetched": false,
+          "comments_fetch_error": "No comments fetched"
+        },
+        "analysis": {
+          "note_id": "695a0f480000000022008b54",
+          "title": "卖陈皮",
+          "relevant": true,
+          "pain_points": [],
+          "solutions_mentioned": [],
+          "market_signals": [],
+          "user_insights": [],
+          "user_needs": [],
+          "feedback_sentiment": "neutral",
+          "sentiment": "neutral",
+          "engagement_score": 1,
+          "analysis_summary": "帖子标题和描述表明这是一个关于在天津销售陈皮的广告，直接与业务创意相关。由于没有用户评论，无法提取具体的用户痛点、需求或情感倾向。整体互动较低，未显示显著的市场信号。",
+          "comments_count": 0
+        }
+      },
+      {
+        "post": {
+          "note_id": "68ca13700000000012015115",
+          "title": "地道新会 品质之选 天津",
+          "desc": "地道新会 品质之选[强] 新会陈皮 10年 新会陈皮 15年 1盒起订、团购咨询更优惠#新会陈皮  #送员工的中秋节礼品",
+          "type": "normal",
+          "publish_time": 0,
+          "liked_count": 2,
+          "collected_count": 0,
+          "shared_count": 0,
+          "comments_count": 0,
+          "user_id": "",
+          "user_nickname": "䒕月～卷不礼",
+          "user_avatar": "",
+          "cover_url": null,
+          "images": [],
+          "keyword_matched": "在天津卖新会陈皮",
+          "comments_data": [],
+          "comments_fetched": false,
+          "comments_fetch_error": "No comments fetched"
+        },
+        "analysis": {
+          "note_id": "68ca13700000000012015115",
+          "title": "地道新会 品质之选 天津",
+          "relevant": true,
+          "pain_points": [],
+          "solutions_mentioned": [
+            "提供10年和15年的新会陈皮",
+            "团购优惠"
+          ],
+          "market_signals": [
+            "新会陈皮在天津有市场需求",
+            "作为中秋节礼品可能受欢迎"
+          ],
+          "user_insights": [],
+          "user_needs": [],
+          "feedback_sentiment": "neutral",
+          "sentiment": "neutral",
+          "engagement_score": 1,
+          "analysis_summary": "该帖子与在天津卖新会陈皮的业务创意相关，提供了不同年份的产品选择和团购优惠，但因缺乏互动和评论，尚无法从用户反馈中提取具体需求和情感。",
+          "comments_count": 0
+        }
+      }
+    ],
+    "summary": {
+      "total_posts": 2,
+      "successful_count": 2,
+      "failed_count": 0,
+      "skipped_count": 0,
+      "relevant_count": 2,
+      "relevance_rate": 1.0,
+      "sentiment_distribution": {
+        "positive": 0,
+        "negative": 0,
+        "neutral": 2
+      },
+      "avg_engagement_score": 1.0
+    }
+  }
+}

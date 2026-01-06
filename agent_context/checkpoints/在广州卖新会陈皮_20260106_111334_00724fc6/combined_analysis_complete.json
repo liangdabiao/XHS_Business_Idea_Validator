@@ -1,0 +1,48 @@
+{
+  "combined_analysis": {
+    "success": true,
+    "analysis": {
+      "overall_score": 72,
+      "market_validation_summary": "尽管市场对新会陈皮存在一定的需求，但信任问题明显，用户对购买渠道和产品真实性有较高关注。现有解决方案较为分散，用户希望能获得更方便的购买体验和信息获取渠道。",
+      "key_pain_points": [
+        "难以找到靠谱的广州陈皮卖家",
+        "担心买到非新会产的陈皮",
+        "缺乏详细购买信息"
+      ],
+      "existing_solutions": [
+        "去新会现场购买",
+        "在广州清平药材批发市场购买",
+        "提供到店品鉴"
+      ],
+      "market_opportunities": [
+        "建立可信赖的购买渠道",
+        "提供详细的产品信息和来源认证",
+        "通过线上平台进行推广和销售"
+      ],
+      "recommendations": [
+        "建立线上线下相结合的销售平台，增加可信度",
+        "通过社交媒体加强品牌宣传，提升用户信任",
+        "提供详细的产品追溯信息，确保产品真实性"
+      ],
+      "metadata": {
+        "total_posts_analyzed": 20,
+        "relevant_posts": 19,
+        "avg_engagement_score": 4.368421052631579,
+        "avg_sentiment": 0.15789473684210525,
+        "sentiment_distribution": {
+          "positive": 2,
+          "neutral": 16,
+          "negative": 1
+        },
+        "total_comments_analyzed": 73,
+        "recent_posts_30days": 0,
+        "top_posts_engagement": [
+          4964,
+          734,
+          142
+        ],
+        "analysis_date": "2026-01-06T11:19:48.784641"
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "combined_analysis": {
+    "success": true,
+    "analysis": {
+      "overall_score": 75,
+      "market_validation_summary": "市场对新会陈皮存在较高需求，用户对正宗渠道和产品质量的信任需求强烈。虽然市场上已有多种解决方案，但仍然存在显著的痛点和机会。用户对产品的真实性、质量、溯源信息以及购买渠道的透明度表示出浓厚兴趣，整体情感保持积极，这为在贵州销售新会陈皮提供了较好的市场前景。",
+      "key_pain_points": [
+        "消费者对陈皮溯源和质量的信任问题",
+        "对新会陈皮的购买渠道或价格不明确",
+        "市场上有造假的新会陈皮，真假难辨"
+      ],
+      "existing_solutions": [
+        "品牌主动公示",
+        "政府监管仓管控",
+        "第三方鉴证"
+      ],
+      "market_opportunities": [
+        "提供透明的溯源体系和质量保证",
+        "开发便捷的线上购买渠道和价格透明机制",
+        "组织新会陈皮产地旅游体验，增强产品可信度"
+      ],
+      "recommendations": [
+        "建立并推广可信的陈皮溯源和质量保证体系，以增强消费者信任。",
+        "开发用户友好的小程序或平台，提供产品信息、价格和购买渠道。",
+        "与当地旅游局合作，推出新会陈皮产地体验活动，提升品牌知名度和用户参与感。"
+      ],
+      "metadata": {
+        "total_posts_analyzed": 20,
+        "relevant_posts": 20,
+        "avg_engagement_score": 6.4,
+        "avg_sentiment": 0.35,
+        "sentiment_distribution": {
+          "positive": 3,
+          "neutral": 16,
+          "negative": 1
+        },
+        "total_comments_analyzed": 156,
+        "recent_posts_30days": 0,
+        "top_posts_engagement": [
+          3119,
+          1701,
+          987
+        ],
+        "analysis_date": "2026-01-06T12:01:46.513024"
+      }
+    }
+  }
+}

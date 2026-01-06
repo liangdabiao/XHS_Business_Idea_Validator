@@ -379,18 +379,25 @@ class AnalyzerAgent(BaseAgent):
         if not business_idea:
             raise ValueError("business_idea is required")
 
+        # 从配置获取最大分析帖子数
+        from agents.config import ConfigManager
+        config_mgr = ConfigManager()
+        max_posts = config_mgr.get('agents.scraper.max_posts_to_analyze', 20)
+        logger.info(f"配置的最大分析帖子数: {max_posts}")
+
         self.update_progress(
             "batch_analyzing_with_comments",
             0.1,
-            f"开始统一分析 {len(posts_with_comments)} 条帖子+评论..."
+            f"开始统一分析 {min(len(posts_with_comments), max_posts)} 条帖子+评论..."
         )
 
-        # 调用 skill - 直接传递 self 的进度回调
+        # 调用 skill - 直接传递 self 的进度回调和 max_posts 限制
         result = await batch_analyze_posts_with_comments_skill(
             self,
             posts_with_comments=posts_with_comments,
             business_idea=business_idea,
-            progress_callback=self._progress_callback
+            progress_callback=self._progress_callback,
+            max_posts=max_posts
         )
 
         # 处理结果（包括部分结果）

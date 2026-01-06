@@ -190,41 +190,43 @@ class LLMClient:
 
         Args:
             prompt: 提示词
-            schema: JSON Schema
+            schema: JSON Schema (仅用于验证，不附加到prompt)
             max_tokens: 最大 token 数
 
         Returns:
             结构化数据
         """
-        # 添加 schema 信息到 prompt
-        schema_prompt = f"""
-{prompt}
-
-Please respond with a JSON object that follows this schema:
-{schema}
-
-Return only the JSON object, no additional text.
-"""
-
-        text = await self.generate_text(schema_prompt, max_tokens=max_tokens)
+        # 不再附加schema到prompt，避免LLM混淆
+        # schema仅用于后续验证
+        text = await self.generate_text(prompt, max_tokens=max_tokens)
 
         logger.debug(f"LLM raw response (first 7500 chars): {text[:7500]}")
 
-        # 清理文本：去除 markdown 代码块标记
+        # 清理文本：提取 markdown 代码块中的 JSON
         text = text.strip()
-        if text.startswith("```json"):
-            text = text[7:]  # 去除 ```json
-        elif text.startswith("```"):
-            text = text[3:]  # 去除 ```
-        if text.endswith("```"):
-            text = text[:-3]  # 去除结尾的 ```
-        text = text.strip()
+        
+        # 使用正则表达式提取 JSON 代码块
+        import re
+        json_pattern = r'```(?:json)?\s*([\s\S]*?)\s*```'
+        match = re.search(json_pattern, text)
+        
+        if match:
+            text = match.group(1).strip()
+            logger.debug(f"Extracted JSON from code block (length: {len(text)})")
+        else:
+            # 如果没有找到代码块，尝试直接解析
+            logger.debug("No code block found, trying to parse directly")
+            text = text.strip()
 
         # 解析 JSON
         import json
         try:
             data = json.loads(text)
             logger.debug(f"Successfully parsed JSON with keys: {list(data.keys()) if isinstance(data, dict) else type(data)}")
+            
+            # 可选：使用schema进行验证（如果需要）
+            # 这里暂时不进行验证，因为schema可能过于严格
+            
             return data
         except json.JSONDecodeError as e:
             logger.error(f"Failed to parse structured output: {e}")

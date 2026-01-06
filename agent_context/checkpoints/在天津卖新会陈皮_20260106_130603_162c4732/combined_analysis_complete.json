@@ -1,0 +1,42 @@
+{
+  "combined_analysis": {
+    "success": true,
+    "analysis": {
+      "overall_score": 45,
+      "market_validation_summary": "虽然天津市场对新会陈皮有潜在需求，但目前的市场活跃度较低，用户参与和反馈有限，且缺乏明确的用户需求和痛点分析。现有解决方案也较为单一，市场竞争压力相对较小。这表明市场机会存在，但需进一步挖掘潜在客户的需求并提高市场活跃度。",
+      "key_pain_points": [],
+      "existing_solutions": [
+        "提供10年和15年的新会陈皮",
+        "团购优惠"
+      ],
+      "market_opportunities": [
+        "开发中秋节礼品市场",
+        "增加用户互动和参与度",
+        "通过市场调研深入了解消费者需求"
+      ],
+      "recommendations": [
+        "进行市场调研以识别潜在客户的具体需求和痛点。",
+        "通过社交媒体和线下活动提高市场活跃度和品牌认知度。",
+        "设计更具吸引力的市场推广活动，尤其是在节日期间，以增加销售机会。"
+      ],
+      "metadata": {
+        "total_posts_analyzed": 2,
+        "relevant_posts": 2,
+        "avg_engagement_score": 1.0,
+        "avg_sentiment": 0.0,
+        "sentiment_distribution": {
+          "positive": 0,
+          "neutral": 2,
+          "negative": 0
+        },
+        "total_comments_analyzed": 0,
+        "recent_posts_30days": 0,
+        "top_posts_engagement": [
+          2,
+          0
+        ],
+        "analysis_date": "2026-01-06T13:10:03.275536"
+      }
+    }
+  }
+}

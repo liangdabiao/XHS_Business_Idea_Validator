@@ -1,0 +1,587 @@
+{
+  "tag_analysis": {
+    "success": true,
+    "tag_analysis": {
+      "crowd_scenario": {},
+      "functional_value": {},
+      "assurance_value": {},
+      "experience_value": {},
+      "total_comments_analyzed": 50,
+      "total_tags_applied": 0,
+      "analysis_summary": "基于 50 条评论生成的标签体系，共应用 0 个标签",
+      "tag_statistics": {},
+      "persona_analysis": {
+        "personas": [
+          {
+            "gender": "女性",
+            "age_estimate": "30-40岁",
+            "demand_keywords": [
+              "品质",
+              "真实性",
+              "价格",
+              "口碑",
+              "产地"
+            ],
+            "purchase_motivation": [
+              "寻找高性价比产品",
+              "确保产品真实性",
+              "口碑推荐",
+              "产地直销",
+              "自用和送礼"
+            ],
+            "emotional_tone": "中性",
+            "persona_tags": [
+              "精打细算",
+              "重视产品真实性",
+              "口碑驱动",
+              "关注产地",
+              "偏好性价比"
+            ]
+          },
+          {
+            "gender": "男性",
+            "age_estimate": "35-45岁",
+            "demand_keywords": [
+              "可靠性",
+              "正品",
+              "产地",
+              "价格",
+              "收藏"
+            ],
+            "purchase_motivation": [
+              "确保购买正品",
+              "投资收藏",
+              "对产地有信任感",
+              "价格合理",
+              "满足好奇心"
+            ],
+            "emotional_tone": "中性",
+            "persona_tags": [
+              "关注正品",
+              "有收藏爱好",
+              "理性消费者",
+              "产地信任",
+              "价格敏感"
+            ]
+          },
+          {
+            "gender": "不确定",
+            "age_estimate": "25-35岁",
+            "demand_keywords": [
+              "安全性",
+              "口碑",
+              "推荐",
+              "个人体验",
+              "便捷性"
+            ],
+            "purchase_motivation": [
+              "听取他人推荐",
+              "个人体验",
+              "关注安全性",
+              "寻求可靠意见",
+              "便捷购买"
+            ],
+            "emotional_tone": "中性",
+            "persona_tags": [
+              "信任口碑",
+              "寻求他人意见",
+              "重视安全性",
+              "希望便捷",
+              "注重个人体验"
+            ]
+          }
+        ],
+        "total_personas": 3,
+        "analysis_summary": "基于评论内容生成的典型用户画像分析"
+      }
+    },
+    "analyzed_results": [
+      {
+        "comment_id": "693d5c56000000001600d74b",
+        "user_nickname": "AAA.茶小胖",
+        "content": "科技",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "69599f8e000000001601d3b2",
+        "user_nickname": "享受一起快乐时光",
+        "content": "",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "694a99ba000000001d0243c1",
+        "user_nickname": "润丽陈皮茶行",
+        "content": "您的养生钱，是否成了智商税？ http://xhslink.com/o/9DuWGK7CQO7 \n复制后打开【小红书】查看笔记！",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "694a01fd000000001502e0b4",
+        "user_nickname": "去有风的地方",
+        "content": "一路看下来，没有一个发线上店铺的",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "694921000000000032000171",
+        "user_nickname": "90后新会柑农的日常",
+        "content": "来",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "6940257f0000000038026eea",
+        "user_nickname": "新阳陈皮",
+        "content": "自己晒是好很多的[赞R]",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "691134db0000000039005cbf",
+        "user_nickname": "低语中",
+        "content": "话说这种陈皮有没有熟的直接生吃咸咸的那种陈皮啊",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "68f1a36d0000000039033a2b",
+        "user_nickname": "海阔天空",
+        "content": "请问最终你在哪里买？",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "68df75cb0000000033004fdc",
+        "user_nickname": "知食分子",
+        "content": "算了  我怕被骗 买同仁堂的算了[笑哭R]",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "68db7692000000003902d544",
+        "user_nickname": "海阔天空",
+        "content": "请问最终买了那家的？",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "68b711230000000030025075",
+        "user_nickname": "So雅雅",
+        "content": "靓野",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "68b2b729000000000b01eb54",
+        "user_nickname": "卖灵芝的小女孩（广州如意坊实体店）",
+        "content": "这个可以不 我自己配茶喝 15年左右",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "68b00a600000000009028940",
+        "user_nickname": "陈皮之家",
+        "content": "可以了解",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "68aaf6170000000030026f66",
+        "user_nickname": "tomorrow",
+        "content": "我这有粤一 #宝的新会陈皮[搜索高亮]#",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "68aac20a000000002603688a",
+        "user_nickname": "陈皮Vicky",
+        "content": "我家新会皮推荐",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "68a689ff0000000030027653",
+        "user_nickname": "小红薯671D2085",
+        "content": "这样的",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "695b2c82000000001602769b",
+        "user_nickname": "姗姗",
+        "content": "5年价格多少",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "695ba16e0000000019000d7b",
+        "user_nickname": "绿洲天使鲨",
+        "content": "帮忙看看，感觉不是啥好皮",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "695b75f40000000019003e57",
+        "user_nickname": "，，，",
+        "content": "帮忙看看[微笑R]",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "695a8995000000001d00984e",
+        "user_nickname": "有只虾米",
+        "content": "#25年新皮茶[搜索高亮]# 坑大红皮 这个对吗",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "695a842f000000001d00b13e",
+        "user_nickname": "有只虾米",
+        "content": "亲帮忙看下 #18年梅江[搜索高亮]# 对不",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "695a3b3a00000000160239ae",
+        "user_nickname": "Legno",
+        "content": "大概多少年呢",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "695a271c000000000e036c29",
+        "user_nickname": "男朋友",
+        "content": "帮我看看 新会买的",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "695a1a150000000019001ebe",
+        "user_nickname": "王一一",
+        "content": "",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "695a15d8000000000f02a6d2",
+        "user_nickname": "xixi在路上",
+        "content": "那这个呢 帮忙看看",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "695a038b000000001d026aef",
+        "user_nickname": "AH",
+        "content": "朋友送的，帮忙看看[doge]",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "6959fb970000000018022486",
+        "user_nickname": "Momo",
+        "content": "请问一下这个皮可以吗",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "6959f0db000000000503adc9",
+        "user_nickname": "xixi在路上",
+        "content": "主播帮忙看看这个陈皮怎么样",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "69565ceb000000001702c7fb",
+        "user_nickname": "杨惠前",
+        "content": "去哪家能买到自己做的，比较靠谱的？",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "694654d6000000003800dff6",
+        "user_nickname": "真想听你说晚安",
+        "content": "找果农，最靠谱",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "69382bf90000000038017a38",
+        "user_nickname": "能人巧匠监茶师",
+        "content": "1",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "6932c947000000001d01ea94",
+        "user_nickname": "唏嘘蘑菇",
+        "content": "",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "69312c76000000003803f67a",
+        "user_nickname": "💋Stone",
+        "content": "刚买的，五年的皮，三百一斤可以喝吗",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "6930033a000000001403f6e9",
+        "user_nickname": "龙恒君（帮老豆妈咪卖柑）",
+        "content": "我也是，自己种自己晒，不打针[吃瓜R]",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "692e866100000000380087a1",
+        "user_nickname": "薯条",
+        "content": "自己用 建议年份大点角皮性价比贼高[doge]",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "692d7d470000000016026ca6",
+        "user_nickname": "福清 然小然（原小象裙摆 童装）",
+        "content": "香港 楼上",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "692d31dd000000000601bcc9",
+        "user_nickname": "爱自己",
+        "content": "我自己晒，每年存，等我孩子长大，就很值钱了了",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "692c2b17000000001601ce9d",
+        "user_nickname": "渐行渐行渐走",
+        "content": "也是跟本地人买的，反正自己也不懂",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "692bc7d7000000003802af8a",
+        "user_nickname": "乌鸡的乌鸡的小乌鸡",
+        "content": "姐妹你买多少钱，哪里的",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "692ab1da000000001600fdb0",
+        "user_nickname": "东泓环游记｜陆香香4号店",
+        "content": "博主买到了吗[doge]",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "692707de000000001d01f835",
+        "user_nickname": "北部湾特产推荐官",
+        "content": "",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "6925c53c000000003803c39d",
+        "user_nickname": "果果",
+        "content": "要买多少",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "6925c089000000001600fa62",
+        "user_nickname": "乖喵喵",
+        "content": "自己每年都去摘，而且全程盯着，稍不留神就会被调包，带多几个人去。",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "695c8156000000000f02bf8d",
+        "user_nickname": "aaa夏夏夏",
+        "content": "请问这个怎么样？",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "695c7193000000001601f767",
+        "user_nickname": "小红薯_0485",
+        "content": "这个肯定是工艺皮对吗？",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "695c7147000000001601e829",
+        "user_nickname": "小红薯_0485",
+        "content": "麻烦帮我看下真假",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "695a01db000000000e03699e",
+        "user_nickname": "欣欣小宝贝呀",
+        "content": "这种呢",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "6959ebc2000000000601aa77",
+        "user_nickname": "男朋友",
+        "content": "帮我看看",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "6959c01b000000001403704a",
+        "user_nickname": "你好哇噻",
+        "content": "麻烦老师帮忙看看",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      },
+      {
+        "comment_id": "6959b7bf000000001600c969",
+        "user_nickname": "毛毛",
+        "content": "你好！麻烦看看到底是真的还是假的",
+        "tags": {},
+        "error": "name 'idx' is not defined",
+        "error_type": "NameError"
+      }
+    ],
+    "sample_size": 50,
+    "total_comments": 111,
+    "persona_analysis": {
+      "personas": [
+        {
+          "gender": "女性",
+          "age_estimate": "30-40岁",
+          "demand_keywords": [
+            "品质",
+            "真实性",
+            "价格",
+            "口碑",
+            "产地"
+          ],
+          "purchase_motivation": [
+            "寻找高性价比产品",
+            "确保产品真实性",
+            "口碑推荐",
+            "产地直销",
+            "自用和送礼"
+          ],
+          "emotional_tone": "中性",
+          "persona_tags": [
+            "精打细算",
+            "重视产品真实性",
+            "口碑驱动",
+            "关注产地",
+            "偏好性价比"
+          ]
+        },
+        {
+          "gender": "男性",
+          "age_estimate": "35-45岁",
+          "demand_keywords": [
+            "可靠性",
+            "正品",
+            "产地",
+            "价格",
+            "收藏"
+          ],
+          "purchase_motivation": [
+            "确保购买正品",
+            "投资收藏",
+            "对产地有信任感",
+            "价格合理",
+            "满足好奇心"
+          ],
+          "emotional_tone": "中性",
+          "persona_tags": [
+            "关注正品",
+            "有收藏爱好",
+            "理性消费者",
+            "产地信任",
+            "价格敏感"
+          ]
+        },
+        {
+          "gender": "不确定",
+          "age_estimate": "25-35岁",
+          "demand_keywords": [
+            "安全性",
+            "口碑",
+            "推荐",
+            "个人体验",
+            "便捷性"
+          ],
+          "purchase_motivation": [
+            "听取他人推荐",
+            "个人体验",
+            "关注安全性",
+            "寻求可靠意见",
+            "便捷购买"
+          ],
+          "emotional_tone": "中性",
+          "persona_tags": [
+            "信任口碑",
+            "寻求他人意见",
+            "重视安全性",
+            "希望便捷",
+            "注重个人体验"
+          ]
+        }
+      ],
+      "total_personas": 3,
+      "analysis_summary": "基于评论内容生成的典型用户画像分析"
+    }
+  }
+}
