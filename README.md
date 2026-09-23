@@ -15,6 +15,9 @@
 
 消费者不是没有需求，而是需求太具体。
 
+skill版本：https://github.com/liangdabiao/xhs-business-validator-skill
+
+agent线上版本：https://xhs-business.liangdabiao.com/
 
 ### 核心功能
 
